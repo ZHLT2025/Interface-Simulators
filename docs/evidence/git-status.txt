@@ -1,0 +1,18 @@
+captured at: 2026-10-26T09:21:30Z
+repo: /root/project/interface-simulators
+branch: main
+HEAD: e047e1e0e6c5573aea250aeb76eeec3bd983af70
+--- git log ---
+e047e1e docs: 第一阶段最终执行报告
+8302076 feat: MOM/IoT/ESB/CV 外部接口模拟器第一阶段（源码、数据集、部署、符合性测试、文档与证据）
+--- remotes ---
+(none)
+--- status ---
+?? docs/evidence/git-status.txt
+(clean)
+--- ignored secrets ---
+.env
+iot/mosquitto/passwd
+--- reflog (no push entries) ---
+e047e1e HEAD@{0}: commit: docs: 第一阶段最终执行报告
+8302076 HEAD@{1}: commit (initial): feat: MOM/IoT/ESB/CV 外部接口模拟器第一阶段（源码、数据集、部署、符合性测试、文档与证据）
