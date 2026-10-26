@@ -1,0 +1,18 @@
+== tcp 18001 (538a9572k900) ==
+{"de4.node.check-host.net":[{"address":"185.189.48.12","time":0.019768}],"in1.node.check-host.net":[{"address":"185.189.48.12","time":0.195348}],"si1.node.check-host.net":[{"address":"185.189.48.12","time":0.057199}],"us1.node.check-host.net":[{"address":"185.189.48.12","time":0.145027}]}
+== tcp 18002 (538a957eke30) ==
+{"bg1.node.check-host.net":[{"address":"185.189.48.12","time":0.042129}],"de2.node.check-host.net":[{"address":"185.189.48.12","time":0.022665}],"es2.node.check-host.net":[{"address":"185.189.48.12","time":0.041349}],"ru2.node.check-host.net":[{"address":"185.189.48.12","time":0.024014}]}
+== tcp 18003 (538a958ak60c) ==
+{"fr2.node.check-host.net":[{"address":"185.189.48.12","time":0.032532}],"ir2.node.check-host.net":[{"address":"185.189.48.12","time":0.078011}],"ir4.node.check-host.net":[{"address":"185.189.48.12","time":0.089389}],"se2.node.check-host.net":[{"address":"185.189.48.12","time":0.001936}]}
+== tcp 18004 (538a9597k936) ==
+{"bg1.node.check-host.net":[{"address":"185.189.48.12","time":0.04288}],"hk1.node.check-host.net":[{"address":"185.189.48.12","time":0.195454}],"hu1.node.check-host.net":[{"address":"185.189.48.12","time":0.039365}],"ir3.node.check-host.net":[{"address":"185.189.48.12","time":0.091672}]}
+== tcp 18830 (538a95aek44a) ==
+{"br1.node.check-host.net":[{"address":"185.189.48.12","time":0.1999}],"ch1.node.check-host.net":[{"address":"185.189.48.12","time":0.028771}],"es1.node.check-host.net":[{"address":"185.189.48.12","time":0.049362}],"nl2.node.check-host.net":[{"address":"185.189.48.12","time":0.021663}]}
+== http 18001 (538a95bdkedc) ==
+{"ir2.node.check-host.net":[[1,0.188169002532959,"OK","200","185.189.48.12"]],"ir4.node.check-host.net":[[1,0.188081979751587,"OK","200","185.189.48.12"]],"tr1.node.check-host.net":[[1,0.136483907699585,"OK","200","185.189.48.12"]]}
+== http 18002 (538a95d4k587) ==
+{"br1.node.check-host.net":[[1,0.395153045654297,"OK","200","185.189.48.12"]],"it2.node.check-host.net":[[1,0.0632011890411377,"OK","200","185.189.48.12"]],"uk1.node.check-host.net":[[1,0.0539519786834717,"OK","200","185.189.48.12"]]}
+== http 18003 (538a95e0k6ae) ==
+{"ir1.node.check-host.net":[[1,0.174006938934326,"OK","200","185.189.48.12"]],"ir4.node.check-host.net":[[1,0.182009935379028,"OK","200","185.189.48.12"]],"tr2.node.check-host.net":[[1,0.118796110153198,"OK","200","185.189.48.12"]]}
+== http 18004 (538a95f0kf1d) ==
+{"es2.node.check-host.net":[[1,0.0883090496063232,"OK","200","185.189.48.12"]],"jp1.node.check-host.net":[[1,0.475698947906494,"OK","200","185.189.48.12"]],"ua1.node.check-host.net":[[1,0.0993490219116211,"OK","200","185.189.48.12"]]}

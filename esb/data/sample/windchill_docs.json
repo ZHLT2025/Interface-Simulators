@@ -1,0 +1,9 @@
+{
+  "_comment": "IF-WINDCHILL-001 样例。documents[文档号] = 下载链接。D0000518627 取自定义 2.4.2 真实返回；其余为协议验证占位。未列出的文档号返回 returnStatus=E / 文档不存在！",
+  "documents": {
+    "D0000518627": "http://plm.tangche.com/Windchill/wtcore/test/fileShareTemp/temp/structDoc/D0000518627工艺结构化文档.xls",
+    "CCD2035-12-00-0099-02-1": "http://plm.tangche.com/Windchill/wtcore/test/fileShareTemp/temp/structDoc/CCD2035_12_00_0099_02_1_02一位侧墙测量表.pdf",
+    "CCD2035-12-01-0000-02": "http://plm.tangche.com/Windchill/wtcore/test/fileShareTemp/temp/structDoc/CCD2035_12_01_0000_02_02车一位侧墙组成.pdf",
+    "CCD2035-12-01-0010": "http://plm.tangche.com/Windchill/wtcore/test/fileShareTemp/temp/structDoc/CCD2035_12_01_0010_侧墙组成节拍1图纸.dwg"
+  }
+}

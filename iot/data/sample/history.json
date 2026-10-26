@@ -1,0 +1,70 @@
+{
+ "_comment": "IF-IOT-003 历史数据种子。前三条取自定义 20.4.2 示例片段；其余为协议验证用 RANGE 样例。发布器运行时产生的实时样本会追加到内存历史中。",
+ "records": [
+  {
+   "deviceCode": "cqx11",
+   "paramCode": "Device2.DBJZDHNHJWD2",
+   "historyData": [
+    {
+     "serverTime": "2026-07-01 11:59:59",
+     "sourceTime": "2009-09-01 11:57:07",
+     "value": "32.0"
+    }
+   ]
+  },
+  {
+   "deviceCode": "cqx11",
+   "paramCode": "HJ1.S0.CurrentPS1",
+   "historyData": [
+    {
+     "serverTime": "2026-07-01 11:40:59",
+     "sourceTime": "2009-09-01 11:38:06",
+     "value": "0.0"
+    },
+    {
+     "serverTime": "2026-07-01 11:44:59",
+     "sourceTime": "2009-09-01 11:42:06",
+     "value": "198.12345"
+    },
+    {
+     "serverTime": "2026-07-01 11:48:59",
+     "sourceTime": "2009-09-01 11:46:06",
+     "value": "203.99786"
+    }
+   ]
+  },
+  {
+   "deviceCode": "cqx11",
+   "paramCode": "HJ1.S0.MotWorkSpeed",
+   "historyData": [
+    {
+     "serverTime": "2026-07-01 11:48:59",
+     "sourceTime": "2009-09-01 11:46:06",
+     "value": "18.996836"
+    }
+   ]
+  },
+  {
+   "deviceCode": "cqx11",
+   "paramCode": "HJ1.S0.VoltagePS1",
+   "historyData": [
+    {
+     "serverTime": "2026-07-01 11:48:59",
+     "sourceTime": "2009-09-01 11:46:06",
+     "value": "19.198902"
+    }
+   ]
+  },
+  {
+   "deviceCode": "dxdm",
+   "paramCode": "大线打磨.DAxPLCDB4.打磨速度",
+   "historyData": [
+    {
+     "serverTime": "2026-07-01 12:00:00",
+     "sourceTime": "2026-07-01 11:59:57",
+     "value": "120.5"
+    }
+   ]
+  }
+ ]
+}

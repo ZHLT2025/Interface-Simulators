@@ -1,0 +1,16 @@
+{
+  "_comment": "IF-SAP-001 样例。materials[物料号] = 文档记录列表（每条含 MANDT..DKTXT_UC）。同一 DOKNR 多版本时按列出顺序取最后一条为最新版，或用 latest:true 标记。前两条取自定义 1.4.2 真实返回；其余为协议验证占位。",
+  "materials": {
+    "M000004674786": [
+      {"MANDT": "800", "DOKAR": "LHT", "DOKNR": "CCD2035-12-00-0099-02-1", "DOKVR": "A1", "DOKTL": "000", "LANGU": "", "DKTXT": "02一位侧墙测量表", "LTXIN": "", "DKTXT_UC": ""},
+      {"MANDT": "800", "DOKAR": "LHT", "DOKNR": "CCD2035-12-01-0000-02", "DOKVR": "C3", "DOKTL": "000", "LANGU": "", "DKTXT": "02车一位侧墙组成", "LTXIN": "", "DKTXT_UC": ""},
+      {"MANDT": "800", "DOKAR": "LHT", "DOKNR": "CCD2035-12-01-0000-02", "DOKVR": "C4", "DOKTL": "000", "LANGU": "", "DKTXT": "02车一位侧墙组成", "LTXIN": "", "DKTXT_UC": ""},
+      {"MANDT": "800", "DOKAR": "TM6", "DOKNR": "D0000518627", "DOKVR": "A", "DOKTL": "000", "LANGU": "", "DKTXT": "侧墙组成工艺结构化文档", "LTXIN": "", "DKTXT_UC": ""},
+      {"MANDT": "800", "DOKAR": "STQ", "DOKNR": "STQ-2035-12-0001", "DOKVR": "-", "DOKTL": "000", "LANGU": "", "DKTXT": "", "LTXIN": "", "DKTXT_UC": ""}
+    ],
+    "Z100000021203": [
+      {"MANDT": "800", "DOKAR": "DWG", "DOKNR": "CCD2035-12-01-0010", "DOKVR": "B2", "DOKTL": "000", "LANGU": "", "DKTXT": "侧墙组成节拍1图纸", "LTXIN": "", "DKTXT_UC": ""}
+    ],
+    "M000004674799": []
+  }
+}

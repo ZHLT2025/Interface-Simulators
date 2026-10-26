@@ -1,0 +1,45 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.15, pytest-8.3.4, pluggy-1.7.0 -- /usr/local/bin/python
+rootdir: /app
+plugins: anyio-4.15.1
+collecting ... collected 37 items
+
+tests/conformance/test_cv.py::test_sink_accepts_sample_and_is_idempotent PASSED [  2%]
+tests/conformance/test_cv.py::test_sink_auth_and_422 PASSED              [  5%]
+tests/conformance/test_cv.py::test_sink_wall_flip_sample PASSED          [  8%]
+tests/conformance/test_cv.py::test_producer_emits_all_event_types PASSED [ 10%]
+tests/conformance/test_cv.py::test_producer_evidence_sha256_matches_served_image PASSED [ 13%]
+tests/conformance/test_cv.py::test_producer_retries_on_500_with_same_event_id PASSED [ 16%]
+tests/conformance/test_cv.py::test_producer_does_not_retry_401_or_422 PASSED [ 18%]
+tests/conformance/test_cv.py::test_producer_scenario_runs PASSED         [ 21%]
+tests/conformance/test_esb.py::test_sap_success[/ESB/SAP/SAP_MaterialAndDocumentNewQuery] PASSED [ 24%]
+tests/conformance/test_esb.py::test_sap_success[/ESB/SAP/SAP_MaterialAndDocumentNewQuery/1.0.0] PASSED [ 27%]
+tests/conformance/test_esb.py::test_sap_no_docs_and_unknown PASSED       [ 29%]
+tests/conformance/test_esb.py::test_sap_faults_and_auth PASSED           [ 32%]
+tests/conformance/test_esb.py::test_windchill_success PASSED             [ 35%]
+tests/conformance/test_esb.py::test_windchill_doc_not_found PASSED       [ 37%]
+tests/conformance/test_esb.py::test_windchill_errors PASSED              [ 40%]
+tests/conformance/test_iot.py::test_001_device_list PASSED               [ 43%]
+tests/conformance/test_iot.py::test_factory_code_header_required PASSED  [ 45%]
+tests/conformance/test_iot.py::test_002_device_param_list PASSED         [ 48%]
+tests/conformance/test_iot.py::test_003_history_range PASSED             [ 51%]
+tests/conformance/test_iot.py::test_003_history_latest_and_errors PASSED [ 54%]
+tests/conformance/test_iot.py::test_004_005_send_config_roundtrip PASSED [ 56%]
+tests/conformance/test_iot.py::test_mqtt_realtime_stream PASSED          [ 59%]
+tests/conformance/test_iot.py::test_mqtt_auth_and_acl PASSED             [ 62%]
+tests/conformance/test_mom.py::test_001_success_shape PASSED             [ 64%]
+tests/conformance/test_mom.py::test_001_time_window_filters PASSED       [ 67%]
+tests/conformance/test_mom.py::test_001_each_workcenter PASSED           [ 70%]
+tests/conformance/test_mom.py::test_001_basic_auth_required PASSED       [ 72%]
+tests/conformance/test_mom.py::test_001_parameter_errors[over0] PASSED   [ 75%]
+tests/conformance/test_mom.py::test_001_parameter_errors[over1] PASSED   [ 78%]
+tests/conformance/test_mom.py::test_001_parameter_errors[over2] PASSED   [ 81%]
+tests/conformance/test_mom.py::test_001_parameter_errors[over3] PASSED   [ 83%]
+tests/conformance/test_mom.py::test_001_parameter_errors[over4] PASSED   [ 86%]
+tests/conformance/test_mom.py::test_001_parameter_errors[over5] PASSED   [ 89%]
+tests/conformance/test_mom.py::test_001_parameter_errors[over6] PASSED   [ 91%]
+tests/conformance/test_mom.py::test_002_success_shape PASSED             [ 94%]
+tests/conformance/test_mom.py::test_002_identity_matches_request PASSED  [ 97%]
+tests/conformance/test_mom.py::test_002_not_found_and_errors PASSED      [100%]
+
+============================= 37 passed in 41.50s ==============================

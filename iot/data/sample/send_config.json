@@ -1,0 +1,161 @@
+{
+ "sendFrequency": 1,
+ "deviceParams": [
+  {
+   "deviceCode": "000000100004060007",
+   "paramCode": "ns=2;s=FOOKED60.calc.alarm_count"
+  },
+  {
+   "deviceCode": "000000100004060007",
+   "paramCode": "ns=2;s=FOOKED60.calc.alarm_times"
+  },
+  {
+   "deviceCode": "ckdm1",
+   "paramCode": "窗口打磨.ChuangkPLCDB17.单个窗口打磨时间"
+  },
+  {
+   "deviceCode": "ckdm1",
+   "paramCode": "窗口打磨.ChuangkPLCDB17.工件到位"
+  },
+  {
+   "deviceCode": "ckdm1",
+   "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1EX姿态"
+  },
+  {
+   "deviceCode": "ckdm1",
+   "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1EY姿态"
+  },
+  {
+   "deviceCode": "ckdm1",
+   "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1EZ姿态"
+  },
+  {
+   "deviceCode": "ckdm1",
+   "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1X姿态"
+  },
+  {
+   "deviceCode": "ckdm1",
+   "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1Y姿态"
+  },
+  {
+   "deviceCode": "ckdm1",
+   "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1Z姿态"
+  },
+  {
+   "deviceCode": "cqx11",
+   "paramCode": "HJ1.S0.ActiveSubStation"
+  },
+  {
+   "deviceCode": "cqx11",
+   "paramCode": "HJ1.S0.ActiveTechDev"
+  },
+  {
+   "deviceCode": "cqx11",
+   "paramCode": "HJ1.S0.ActiveTool"
+  },
+  {
+   "deviceCode": "cqx11",
+   "paramCode": "HJ1.S0.CurrentProgram"
+  },
+  {
+   "deviceCode": "cqx11",
+   "paramCode": "HJ1.S0.CurrentPS1"
+  },
+  {
+   "deviceCode": "cqx11",
+   "paramCode": "HJ1.S0.CurrentPS2"
+  },
+  {
+   "deviceCode": "cqx11",
+   "paramCode": "HJ1.S0.CurrentStepNumber"
+  },
+  {
+   "deviceCode": "cqx11",
+   "paramCode": "HJ1.S0.DriversAreReady"
+  },
+  {
+   "deviceCode": "cqx11",
+   "paramCode": "HJ1.S0.DrivesAreOn"
+  },
+  {
+   "deviceCode": "cqx11",
+   "paramCode": "HJ1.S0.DrivesOn"
+  },
+  {
+   "deviceCode": "cqx11",
+   "paramCode": "HJ1.S0.EndTime"
+  },
+  {
+   "deviceCode": "cqx11",
+   "paramCode": "HJ1.S0.ErrorNumberSP1"
+  },
+  {
+   "deviceCode": "cqx11",
+   "paramCode": "HJ1.S0.ErrorNumberSP2"
+  },
+  {
+   "deviceCode": "dxdm",
+   "paramCode": "大线打磨.DAxPLCDB4.A基准"
+  },
+  {
+   "deviceCode": "dxdm",
+   "paramCode": "大线打磨.DAxPLCDB4.x基准"
+  },
+  {
+   "deviceCode": "dxdm",
+   "paramCode": "大线打磨.DAxPLCDB4.z基准"
+  },
+  {
+   "deviceCode": "dxdm",
+   "paramCode": "大线打磨.DAxPLCDB4.右工位到位"
+  },
+  {
+   "deviceCode": "dxdm",
+   "paramCode": "大线打磨.DAxPLCDB4.工件到位"
+  },
+  {
+   "deviceCode": "dxdm",
+   "paramCode": "大线打磨.DAxPLCDB4.左工位到位"
+  },
+  {
+   "deviceCode": "dxdm",
+   "paramCode": "大线打磨.DAxPLCDB4.打磨压力反馈"
+  },
+  {
+   "deviceCode": "dxdm",
+   "paramCode": "大线打磨.DAxPLCDB4.打磨速度"
+  },
+  {
+   "deviceCode": "dxdm",
+   "paramCode": "大线打磨.DAxPLCDB4.整墙开始"
+  },
+  {
+   "deviceCode": "dxdm",
+   "paramCode": "大线打磨.DAxPLCDB4.整墙结束"
+  },
+  {
+   "deviceCode": "dxdm",
+   "paramCode": "大线打磨.DAxPLCDB4.机器人EX姿态"
+  },
+  {
+   "deviceCode": "dxdm",
+   "paramCode": "大线打磨.DAxPLCDB4.机器人EY姿态"
+  },
+  {
+   "deviceCode": "dxdm",
+   "paramCode": "大线打磨.DAxPLCDB4.机器人EZ姿态"
+  },
+  {
+   "deviceCode": "dxdm",
+   "paramCode": "大线打磨.DAxPLCDB4.机器人X姿态"
+  },
+  {
+   "deviceCode": "dxdm",
+   "paramCode": "大线打磨.DAxPLCDB4.机器人Y姿态"
+  },
+  {
+   "deviceCode": "dxdm",
+   "paramCode": "大线打磨.DAxPLCDB4.机器人Z姿态"
+  }
+ ]
+}

@@ -1,0 +1,90 @@
+[
+ {
+  "time": "2026-10-26T09:15:03.564Z",
+  "client": "172.19.0.1",
+  "method": "POST",
+  "path": "/api/v1/cv-events",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18004",
+   "accept": "*/*",
+   "accept-encoding": "gzip, deflate",
+   "connection": "keep-alive",
+   "user-agent": "python-httpx/0.28.1",
+   "content-length": "858",
+   "content-type": "application/json",
+   "authorization": "Basic ***"
+  },
+  "request_body": "{\"spec_version\":\"2.0\",\"algorithm_version\":\"1.0.0\",\"event_id\":\"40444779484610560\",\"event_definition\":\"PERSON_COUNT-ROI_20_01_02\",\"event_type\":\"PERSON_COUNT\",\"operation\":\"创建\",\"timestamp\":\"2026-08-12T00:02:06.000Z\",\"sent_at\":\"2026-08-12T05:06:13.713Z\",\"camera_id\":\"CAM-20\",\"roi\":{\"id\":\"ROI_20_01_02\",\"area_name\":\"侧墙附件组焊台位04人数统计\"},\"event_data\":{\"count\":1,\"targets\":[{\"cid\":0,\"confidence\":0.9132,\"bbox\":{\"x\":432.77,\"y\":95.04,\"w\":30.08,\"h\":62.91},\"center\":{\"x\":447.81,\"y\":126.5},\"evidence_ref\":{\"file_id\":\"frame-001\"}}]},\"evidence\":{\"type\":\"SINGLE_IMAGE\",\"files\":[{\"file_id\":\"frame-001\",\"uri\":\"oss://cv-evidence/2026/08/12/CAM-20/40444779484610560/frame_001.jpg\",\"media_type\":\"image/jpeg\",\"captured_at\":\"2026-08-12T00:02:06.000Z\",\"width\":1920,\"height\":1080,\"sha256\":\"28f93d7e1b6f0a4c9e832d75417cab680f23e9164a5d70bc2981ef364d52a7c0\"}]}}",
+  "status": 200,
+  "response_body": "{\"returnStatus\":\"S\",\"returnCode\":200,\"returnMsg\":\"successfully\"}",
+  "elapsed_ms": 40.2,
+  "seq": 1
+ },
+ {
+  "time": "2026-10-26T09:15:03.736Z",
+  "client": "172.19.0.1",
+  "method": "POST",
+  "path": "/api/v1/cv-events",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18004",
+   "accept": "*/*",
+   "accept-encoding": "gzip, deflate",
+   "connection": "keep-alive",
+   "user-agent": "python-httpx/0.28.1",
+   "content-length": "858",
+   "content-type": "application/json",
+   "authorization": "Basic ***"
+  },
+  "request_body": "{\"spec_version\":\"2.0\",\"algorithm_version\":\"1.0.0\",\"event_id\":\"40444779484610560\",\"event_definition\":\"PERSON_COUNT-ROI_20_01_02\",\"event_type\":\"PERSON_COUNT\",\"operation\":\"创建\",\"timestamp\":\"2026-08-12T00:02:06.000Z\",\"sent_at\":\"2026-08-12T05:06:13.713Z\",\"camera_id\":\"CAM-20\",\"roi\":{\"id\":\"ROI_20_01_02\",\"area_name\":\"侧墙附件组焊台位04人数统计\"},\"event_data\":{\"count\":1,\"targets\":[{\"cid\":0,\"confidence\":0.9132,\"bbox\":{\"x\":432.77,\"y\":95.04,\"w\":30.08,\"h\":62.91},\"center\":{\"x\":447.81,\"y\":126.5},\"evidence_ref\":{\"file_id\":\"frame-001\"}}]},\"evidence\":{\"type\":\"SINGLE_IMAGE\",\"files\":[{\"file_id\":\"frame-001\",\"uri\":\"oss://cv-evidence/2026/08/12/CAM-20/40444779484610560/frame_001.jpg\",\"media_type\":\"image/jpeg\",\"captured_at\":\"2026-08-12T00:02:06.000Z\",\"width\":1920,\"height\":1080,\"sha256\":\"28f93d7e1b6f0a4c9e832d75417cab680f23e9164a5d70bc2981ef364d52a7c0\"}]}}",
+  "status": 401,
+  "response_body": "{\"detail\":\"authentication failed\"}",
+  "elapsed_ms": 1.25,
+  "seq": 3
+ },
+ {
+  "time": "2026-10-26T09:15:03.786Z",
+  "client": "172.19.0.1",
+  "method": "POST",
+  "path": "/api/v1/cv-events",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18004",
+   "accept": "*/*",
+   "accept-encoding": "gzip, deflate",
+   "connection": "keep-alive",
+   "user-agent": "python-httpx/0.28.1",
+   "content-length": "827",
+   "content-type": "application/json",
+   "authorization": "Basic ***"
+  },
+  "request_body": "{\"spec_version\":\"2.0\",\"algorithm_version\":\"1.0.0\",\"event_definition\":\"PERSON_COUNT-ROI_20_01_02\",\"event_type\":\"PERSON_COUNT\",\"operation\":\"创建\",\"timestamp\":\"2026-08-12T00:02:06.000Z\",\"sent_at\":\"2026-08-12T05:06:13.713Z\",\"camera_id\":\"CAM-20\",\"roi\":{\"id\":\"ROI_20_01_02\",\"area_name\":\"侧墙附件组焊台位04人数统计\"},\"event_data\":{\"count\":1,\"targets\":[{\"cid\":0,\"confidence\":0.9132,\"bbox\":{\"x\":432.77,\"y\":95.04,\"w\":30.08,\"h\":62.91},\"center\":{\"x\":447.81,\"y\":126.5},\"evidence_ref\":{\"file_id\":\"frame-001\"}}]},\"evidence\":{\"type\":\"SINGLE_IMAGE\",\"files\":[{\"file_id\":\"frame-001\",\"uri\":\"oss://cv-evidence/2026/08/12/CAM-20/40444779484610560/frame_001.jpg\",\"media_type\":\"image/jpeg\",\"captured_at\":\"2026-08-12T00:02:06.000Z\",\"width\":1920,\"height\":1080,\"sha256\":\"28f93d7e1b6f0a4c9e832d75417cab680f23e9164a5d70bc2981ef364d52a7c0\"}]}}",
+  "status": 422,
+  "response_body": "{\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"event_id\"],\"msg\":\"Field required\"}]}",
+  "elapsed_ms": 2.3,
+  "seq": 4
+ },
+ {
+  "time": "2026-10-26T09:15:06.684Z",
+  "client": "127.0.0.1",
+  "method": "POST",
+  "path": "/api/v1/cv-events",
+  "query": "",
+  "headers": {
+   "host": "127.0.0.1:8000",
+   "accept": "*/*",
+   "accept-encoding": "gzip, deflate",
+   "connection": "keep-alive",
+   "user-agent": "python-httpx/0.28.1",
+   "content-type": "application/json",
+   "content-length": "818",
+   "authorization": "Basic ***"
+  },
+  "request_body": "{\"spec_version\":\"2.0\",\"algorithm_version\":\"1.0.0\",\"event_id\":\"373036811682869248\",\"event_definition\":\"ENTER-ROI_20_02_01\",\"event_type\":\"ENTER\",\"operation\":\"创建\",\"timestamp\":\"2026-10-26T09:15:06.629Z\",\"sent_at\":\"2026-10-26T09:15:06.631Z\",\"camera_id\":\"CAM-20\",\"roi\":{\"id\":\"ROI_20_02_01\",\"area_name\":\"侧墙附件组焊台位03\"},\"event_data\":{\"targets\":[{\"cid\":0,\"confidence\":0.88,\"bbox\":{\"x\":300.0,\"y\":120.0,\"w\":40.0,\"h\":90.0},\"center\":{\"x\":320.0,\"y\":165.0},\"evidence_ref\":{\"file_id\":\"frame-001\"}}]},\"evidence\":{\"type\":\"SINGLE_IMAGE\",\"files\":[{\"file_id\":\"frame-001\",\"uri\":\"oss://cv-evidence/2026/10/26/CAM-20/373036811682869248/frame_001.jpg\",\"media_type\":\"image/jpeg\",\"captured_at\":\"2026-10-26T09:15:06.629Z\",\"width\":1920,\"height\":1080,\"sha256\":\"6d53df4747f131ce39ab452c498c6f366723412d8ec4fd6fd1faae4da11341d9\"}]}}",
+  "status": 500,
+  "response_body": "{\"detail\":\"simulated receiver failure\"}",
+  "elapsed_ms": 10.45,
+  "seq": 21
+ }
+]

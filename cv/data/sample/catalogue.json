@@ -1,0 +1,21 @@
+{
+  "_comment": "CV 协议验证样例：摄像机/ROI 目录与各事件类型的默认目标。ROI 编号与名称取自定义 24.4 示例；其余为占位，正式 ROI 配对关系待算法方与业务方确认。",
+  "cameras": ["CAM-01", "CAM-02", "CAM-10", "CAM-20", "CAM-21", "CAM-24"],
+  "rois": [
+    {"id": "ROI_20_01_02", "area_name": "侧墙附件组焊台位04人数统计", "camera_id": "CAM-20"},
+    {"id": "ROI_20_02_01", "area_name": "侧墙附件组焊台位03", "camera_id": "CAM-20"},
+    {"id": "ROI_21_01_01", "area_name": "加工中心工位A", "camera_id": "CAM-21"},
+    {"id": "ROI_21_01_02", "area_name": "加工中心工位B", "camera_id": "CAM-21"},
+    {"id": "ROI_10_01_01", "area_name": "型材进料区", "camera_id": "CAM-10"},
+    {"id": "ROI_10_02_01", "area_name": "成品转运区", "camera_id": "CAM-10"}
+  ],
+  "default_targets": {
+    "PERSON_COUNT": [{"cid": 0, "confidence": 0.9132, "bbox": {"x": 432.77, "y": 95.04, "w": 30.08, "h": 62.91}, "center": {"x": 447.81, "y": 126.5}}],
+    "WALL_FLIP": [{"cid": 1, "confidence": 0.2624, "bbox": {"x": 458.36, "y": 62.98, "w": 557.95, "h": 433.4}, "center": {"x": 737.33, "y": 279.68}}],
+    "ENTER": [{"cid": 0, "confidence": 0.88, "bbox": {"x": 300.0, "y": 120.0, "w": 40.0, "h": 90.0}, "center": {"x": 320.0, "y": 165.0}}],
+    "LEAVE": [{"cid": 0, "confidence": 0.86, "bbox": {"x": 900.0, "y": 140.0, "w": 42.0, "h": 92.0}, "center": {"x": 921.0, "y": 186.0}}],
+    "SPARK": [{"cid": 5, "confidence": 0.77, "bbox": {"x": 640.0, "y": 300.0, "w": 80.0, "h": 60.0}, "center": {"x": 680.0, "y": 330.0}}],
+    "SOUNDPROOF_COVER_MOVE_COMPLETED": [{"cid": 9, "confidence": 0.95, "bbox": {"x": 200.0, "y": 100.0, "w": 900.0, "h": 600.0}, "center": {"x": 650.0, "y": 400.0}}],
+    "TRANSFER_VEHICLE_EMPTY": [{"cid": 3, "confidence": 0.9, "bbox": {"x": 100.0, "y": 400.0, "w": 700.0, "h": 300.0}, "center": {"x": 450.0, "y": 550.0}}]
+  }
+}

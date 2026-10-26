@@ -1,0 +1,15 @@
+{
+  "_comment": "IF-IOT-001 设备清单样例，取自《接口定义说明书三、IOT部分-0813》18.4.2 示例。",
+  "devices": [
+    {"fundingCode": "046-4", "deviceCode": "000000100004060013", "deviceName": "铝合金铝合金FOOKE加工中心"},
+    {"fundingCode": "999-00690", "deviceCode": "ckdm1", "deviceName": "侧墙自动化打磨设备-1"},
+    {"fundingCode": "999-00690", "deviceCode": "ckdm2", "deviceName": "侧墙自动化打磨设备-2"},
+    {"fundingCode": "999-00690", "deviceCode": "ckdm3", "deviceName": "侧墙自动化打磨设备-3"},
+    {"fundingCode": "046-00019", "deviceCode": "000000100004060007", "deviceName": "铝合金龙门加工中心"},
+    {"fundingCode": "999-00655", "deviceCode": "dxdm", "deviceName": "侧墙自动化打磨设备"},
+    {"fundingCode": "269-00066", "deviceCode": "cqx11", "deviceName": "大部件自动焊设备-1"},
+    {"fundingCode": "269-00066", "deviceCode": "cqx12", "deviceName": "大部件自动焊设备-2"},
+    {"fundingCode": "269-00067", "deviceCode": "cqx21", "deviceName": "大部件自动焊设备-1"},
+    {"fundingCode": "269-00067", "deviceCode": "cqx22", "deviceName": "大部件自动焊设备-2"}
+  ]
+}

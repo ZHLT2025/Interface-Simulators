@@ -1,0 +1,28 @@
+{
+ "_comment": "IF-IOT-MQTT-001 实时数据生成规则。mode=generator 时按参数类型随机游走并仅发布变化点位；mode=script 时按 script 顺序回放（第三阶段装载剧本用）。generators 键可为 paramCode 或 deviceCode/paramCode。",
+ "mode": "generator",
+ "change_probability": 0.5,
+ "generators": {
+  "HJ1.S0.CurrentPS1": {"type": "float", "min": 150, "max": 260, "step": 3, "decimals": 5},
+  "HJ1.S0.CurrentPS2": {"type": "float", "min": 150, "max": 260, "step": 3, "decimals": 5},
+  "HJ1.S0.VoltagePS1": {"type": "float", "min": 17, "max": 24, "step": 0.3, "decimals": 6},
+  "HJ1.S0.CurrentProgram": {"type": "string", "values": ["1haotai.PRG", "2haotai.PRG", "3haotai.PRG"]},
+  "HJ1.S0.CurrentStepNumber": {"type": "float", "min": 1, "max": 60, "step": 1, "decimals": 0},
+  "HJ1.S0.EndTime": {"type": "string", "values": ["2026-06-04 15:09:00", "2026-06-04 16:40:00"]},
+  "HJ1.S0.ErrorNumberSP1": {"type": "int", "min": 0, "max": 0},
+  "HJ1.S0.ErrorNumberSP2": {"type": "int", "min": 0, "max": 0},
+  "HJ1.S0.DrivesAreOn": {"type": "int", "min": 0, "max": 1},
+  "HJ1.S0.DrivesOn": {"type": "int", "min": 0, "max": 100000, "step": 5},
+  "ns=2;s=FOOKED60.calc.alarm_count": {"type": "int", "min": 0, "max": 5},
+  "ns=2;s=FOOKED60.calc.alarm_times": {"type": "int", "min": 0, "max": 50},
+  "窗口打磨.ChuangkPLCDB17.单个窗口打磨时间": {"type": "float", "min": 30, "max": 90, "step": 2, "decimals": 1},
+  "大线打磨.DAxPLCDB4.打磨速度": {"type": "float", "min": 80, "max": 160, "step": 4, "decimals": 1},
+  "大线打磨.DAxPLCDB4.打磨压力反馈": {"type": "float", "min": 20, "max": 60, "step": 2, "decimals": 2}
+ },
+ "script": [
+  {"at": 0, "deviceCode": "cqx11", "points": [{"identifiers": "HJ1.S0.CurrentProgram", "value": "1haotai.PRG"}, {"identifiers": "HJ1.S0.CurrentPS1", "value": "203.99786"}, {"identifiers": "HJ1.S0.VoltagePS1", "value": "19.198902"}]},
+  {"at": 2, "deviceCode": "cqx11", "points": [{"identifiers": "HJ1.S0.TOROCHRunning", "value": "true"}]},
+  {"at": 5, "deviceCode": "cqx11", "points": [{"identifiers": "HJ1.S0.TOROCHRunning", "value": "false"}]}
+ ],
+ "loop": false
+}

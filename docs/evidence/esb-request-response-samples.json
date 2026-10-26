@@ -1,0 +1,130 @@
+[
+ {
+  "time": "2026-10-26T09:12:08.176Z",
+  "client": "172.19.0.1",
+  "method": "POST",
+  "path": "/ESB/SAP/SAP_MaterialAndDocumentNewQuery",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18003",
+   "accept": "*/*",
+   "accept-encoding": "gzip, deflate",
+   "connection": "keep-alive",
+   "user-agent": "python-httpx/0.28.1",
+   "content-type": "application/xml; charset=utf-8",
+   "content-length": "472",
+   "authorization": "Basic ***"
+  },
+  "request_body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Header/><soapenv:Body><v1:request xmlns:v1=\"http://www.tc.com/TCSAP/Inv/MaterialAndDocumentNew/v1.0\"><esbInfo><instId>TEST-20260914-001</instId><requestTime>2026-09-14 16:20:00</requestTime><attr1></attr1><attr2></attr2><attr3></attr3></esbInfo><requestInfo><PMATNR>M000004674786</PMATNR></requestInfo></v1:request></soapenv:Body></soapenv:Envelope>",
+  "status": 200,
+  "response_body": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><ns2:response xmlns:ns2=\"http://www.tc.com/TCSAP/Inv/MaterialAndDocumentNew/v1.0\"><ns2:resultInfo><ns2:DOCS><ns2:item><ns2:MANDT>800</ns2:MANDT><ns2:DOKAR>LHT</ns2:DOKAR><ns2:DOKNR>CCD2035-12-00-0099-02-1</ns2:DOKNR><ns2:DOKVR>A1</ns2:DOKVR><ns2:DOKTL>000</ns2:DOKTL><ns2:LANGU></ns2:LANGU><ns2:DKTXT>02一位侧墙测量表</ns2:DKTXT><ns2:LTXIN></ns2:LTXIN><ns2:DKTXT_UC></ns2:DKTXT_UC></ns2:item><ns2:item><ns2:MANDT>800</ns2:MANDT><ns2:DOKAR>LHT</ns2:DOKAR><ns2:DOKNR>CCD2035-12-01-0000-02</ns2:DOKNR><ns2:DOKVR>C4</ns2:DOKVR><ns2:DOKTL>000</ns2:DOKTL><ns2:LANGU></ns2:LANGU><ns2:DKTXT>02车一位侧墙组成</ns2:DKTXT><ns2:LTXIN></ns2:LTXIN><ns2:DKTXT_UC></ns2:DKTXT_UC></ns2:item><ns2:item><ns2:MANDT>800</ns2:MANDT><ns2:DOKAR>TM6</ns2:DOKAR><ns2:DOKNR>D0000518627</ns2:DOKNR><ns2:DOKVR>A</ns2:DOKVR><ns2:DOKTL>000</ns2:DOKTL><ns2:LANGU></ns2:LANGU><ns2:DKTXT>侧墙组成工艺结构化文档</ns2:DKTXT><ns2:LTXIN></ns2:LTXIN><ns2:DKTXT_UC></ns2:DKTXT_UC></ns2:item><ns2:item><ns2:MANDT>800</ns2:MANDT><ns2:DOKAR>STQ</ns2:DOKAR><ns2:DOKNR>STQ-2035-12-0001</ns2:DOKNR><ns2:DOKVR>-</ns2:DOKVR><ns2:DOKTL>000</ns2:DOKTL><ns2:LANGU></ns2:LANGU><ns2:DKTXT></ns2:DKTXT><ns2:LTXIN></ns2:LTXIN><ns2:DKTXT_UC></ns2:DKTXT_UC></ns2:item></ns2:DOCS></ns2:resultInfo></ns2:response></soap:Body></soap:Envelope>",
+  "elapsed_ms": 3.02,
+  "seq": 2
+ },
+ {
+  "time": "2026-10-26T09:12:08.386Z",
+  "client": "172.19.0.1",
+  "method": "POST",
+  "path": "/ESB/SAP/SAP_MaterialAndDocumentNewQuery",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18003",
+   "accept": "*/*",
+   "accept-encoding": "gzip, deflate",
+   "connection": "keep-alive",
+   "user-agent": "python-httpx/0.28.1",
+   "content-type": "application/xml; charset=utf-8",
+   "content-length": "472"
+  },
+  "request_body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Header/><soapenv:Body><v1:request xmlns:v1=\"http://www.tc.com/TCSAP/Inv/MaterialAndDocumentNew/v1.0\"><esbInfo><instId>TEST-20260914-001</instId><requestTime>2026-09-14 16:20:00</requestTime><attr1></attr1><attr2></attr2><attr3></attr3></esbInfo><requestInfo><PMATNR>M000004674786</PMATNR></requestInfo></v1:request></soapenv:Body></soapenv:Envelope>",
+  "status": 401,
+  "response_body": "unauthorized",
+  "elapsed_ms": 1.02,
+  "seq": 6
+ },
+ {
+  "time": "2026-10-26T09:12:08.433Z",
+  "client": "172.19.0.1",
+  "method": "POST",
+  "path": "/ESB/SAP/SAP_MaterialAndDocumentNewQuery",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18003",
+   "accept": "*/*",
+   "accept-encoding": "gzip, deflate",
+   "connection": "keep-alive",
+   "user-agent": "python-httpx/0.28.1",
+   "content-type": "application/xml; charset=utf-8",
+   "content-length": "442",
+   "authorization": "Basic ***"
+  },
+  "request_body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Header/><soapenv:Body><v1:request xmlns:v1=\"http://www.tc.com/TCSAP/Inv/MaterialAndDocumentNew/v1.0\"><esbInfo><instId>TEST-20260914-001</instId><requestTime>2026-09-14 16:20:00</requestTime><attr1></attr1><attr2></attr2><attr3></attr3></esbInfo><requestInfo></requestInfo></v1:request></soapenv:Body></soapenv:Envelope>",
+  "status": 500,
+  "response_body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><soap:Fault><faultcode>soap:Client</faultcode><faultstring>requestInfo/PMATNR is required</faultstring></soap:Fault></soap:Body></soap:Envelope>",
+  "elapsed_ms": 1.76,
+  "seq": 7
+ },
+ {
+  "time": "2026-10-26T09:10:54.882Z",
+  "client": "185.189.48.12",
+  "method": "POST",
+  "path": "/ESB/SAP/SAP_MaterialAndDocumentNewQuery/1.0.0",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18003",
+   "authorization": "Basic ***",
+   "user-agent": "curl/8.5.0",
+   "accept": "*/*",
+   "content-type": "application/xml; charset=utf-8",
+   "content-length": "273"
+  },
+  "request_body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Body><v1:request xmlns:v1=\"http://www.tc.com/TCSAP/Inv/MaterialAndDocumentNew/v1.0\"><requestInfo><PMATNR>M000004674786</PMATNR></requestInfo></v1:request></soapenv:Body></soapenv:Envelope>",
+  "status": 200,
+  "response_body": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><ns2:response xmlns:ns2=\"http://www.tc.com/TCSAP/Inv/MaterialAndDocumentNew/v1.0\"><ns2:resultInfo><ns2:DOCS><ns2:item><ns2:MANDT>800</ns2:MANDT><ns2:DOKAR>LHT</ns2:DOKAR><ns2:DOKNR>CCD2035-12-00-0099-02-1</ns2:DOKNR><ns2:DOKVR>A1</ns2:DOKVR><ns2:DOKTL>000</ns2:DOKTL><ns2:LANGU></ns2:LANGU><ns2:DKTXT>02一位侧墙测量表</ns2:DKTXT><ns2:LTXIN></ns2:LTXIN><ns2:DKTXT_UC></ns2:DKTXT_UC></ns2:item><ns2:item><ns2:MANDT>800</ns2:MANDT><ns2:DOKAR>LHT</ns2:DOKAR><ns2:DOKNR>CCD2035-12-01-0000-02</ns2:DOKNR><ns2:DOKVR>C4</ns2:DOKVR><ns2:DOKTL>000</ns2:DOKTL><ns2:LANGU></ns2:LANGU><ns2:DKTXT>02车一位侧墙组成</ns2:DKTXT><ns2:LTXIN></ns2:LTXIN><ns2:DKTXT_UC></ns2:DKTXT_UC></ns2:item><ns2:item><ns2:MANDT>800</ns2:MANDT><ns2:DOKAR>TM6</ns2:DOKAR><ns2:DOKNR>D0000518627</ns2:DOKNR><ns2:DOKVR>A</ns2:DOKVR><ns2:DOKTL>000</ns2:DOKTL><ns2:LANGU></ns2:LANGU><ns2:DKTXT>侧墙组成工艺结构化文档</ns2:DKTXT><ns2:LTXIN></ns2:LTXIN><ns2:DKTXT_UC></ns2:DKTXT_UC></ns2:item><ns2:item><ns2:MANDT>800</ns2:MANDT><ns2:DOKAR>STQ</ns2:DOKAR><ns2:DOKNR>STQ-2035-12-0001</ns2:DOKNR><ns2:DOKVR>-</ns2:DOKVR><ns2:DOKTL>000</ns2:DOKTL><ns2:LANGU></ns2:LANGU><ns2:DKTXT></ns2:DKTXT><ns2:LTXIN></ns2:LTXIN><ns2:DKTXT_UC></ns2:DKTXT_UC></ns2:item></ns2:DOCS></ns2:resultInfo></ns2:response></soap:Body></soap:Envelope>",
+  "elapsed_ms": 8.43,
+  "seq": 1
+ },
+ {
+  "time": "2026-10-26T09:12:08.580Z",
+  "client": "172.19.0.1",
+  "method": "POST",
+  "path": "/ESB/WINDCHILL/WINDCHILL_GeneralInterface",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18003",
+   "accept-encoding": "gzip, deflate",
+   "connection": "keep-alive",
+   "user-agent": "python-httpx/0.28.1",
+   "content-type": "text/xml; charset=UTF-8",
+   "accept": "text/xml, application/xml",
+   "content-length": "416",
+   "authorization": "Basic ***"
+  },
+  "request_body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:adap=\"http://adapter.tangche.ext/\"><soapenv:Header/><soapenv:Body><adap:BusAdapterService><apiName>getDocSecFileInfo</apiName><apiDesc>文档附件接口</apiDesc><requestInfo><![CDATA[\n{\"docNumber\":\"D0000518627\"}\n      ]]></requestInfo></adap:BusAdapterService></soapenv:Body></soapenv:Envelope>",
+  "status": 200,
+  "response_body": "<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\"><S:Body><ns2:BusAdapterServiceResponse xmlns:ns2=\"http://adapter.tangche.ext/\"><return>S</return><resultInfo/><returnStatus>S</returnStatus><returnMsg>http://plm.tangche.com/Windchill/wtcore/test/fileShareTemp/temp/structDoc/D0000518627工艺结构化文档.xls</returnMsg></ns2:BusAdapterServiceResponse></S:Body></S:Envelope>",
+  "elapsed_ms": 4.96,
+  "seq": 10
+ },
+ {
+  "time": "2026-10-26T09:12:08.705Z",
+  "client": "172.19.0.1",
+  "method": "POST",
+  "path": "/ESB/WINDCHILL/WINDCHILL_GeneralInterface",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18003",
+   "accept-encoding": "gzip, deflate",
+   "connection": "keep-alive",
+   "user-agent": "python-httpx/0.28.1",
+   "content-type": "text/xml; charset=UTF-8",
+   "accept": "text/xml, application/xml",
+   "content-length": "416"
+  },
+  "request_body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:adap=\"http://adapter.tangche.ext/\"><soapenv:Header/><soapenv:Body><adap:BusAdapterService><apiName>getDocSecFileInfo</apiName><apiDesc>文档附件接口</apiDesc><requestInfo><![CDATA[\n{\"docNumber\":\"D0000518627\"}\n      ]]></requestInfo></adap:BusAdapterService></soapenv:Body></soapenv:Envelope>",
+  "status": 401,
+  "response_body": "unauthorized",
+  "elapsed_ms": 0.93,
+  "seq": 12
+ }
+]

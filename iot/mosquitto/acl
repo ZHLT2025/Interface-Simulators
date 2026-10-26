@@ -1,0 +1,10 @@
+# Topic ACL (definition §23.6: 发布测试账号需 Publish 权限，订阅账号需 Subscribe 权限)
+# publisher account: may publish device telemetry
+user sim-iot-pub
+topic write pushToFactory/#
+topic read $SYS/#
+
+# subscriber account for the platform / testers: read-only on device telemetry
+user sim-iot-sub
+topic read pushToFactory/#
+topic read $SYS/#

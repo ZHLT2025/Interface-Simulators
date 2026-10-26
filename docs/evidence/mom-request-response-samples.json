@@ -1,0 +1,153 @@
+[
+ {
+  "time": "2026-10-26T09:12:20.830Z",
+  "client": "172.19.0.1",
+  "method": "POST",
+  "path": "/api/v1/get_order",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18001",
+   "accept": "*/*",
+   "accept-encoding": "gzip, deflate",
+   "connection": "keep-alive",
+   "user-agent": "python-httpx/0.28.1",
+   "content-length": "234",
+   "content-type": "application/json",
+   "authorization": "Basic ***"
+  },
+  "request_body": "{\"esbInfo\":{\"instId\":null,\"requestTime\":null,\"attr1\":null,\"attr2\":null,\"attr3\":null},\"requestInfo\":{\"SYSTEMTYPE\":\"119\",\"WIPORDERNO\":\"001107007298\",\"WIPORDERTYPE\":\"101\",\"OPRSEQUENCENO\":\"0010\",\"DUMMY1\":null,\"DUMMY2\":null,\"DUMMY3\":null}}",
+  "status": 200,
+  "response_body": "{\"esbInfo\":{\"instId\":\"\",\"requestTime\":\"2026-10-26 17:12:20\",\"responseTime\":\"2026-10-26 17:12:20\",\"returnStatus\":\"S\",\"returnCode\":200,\"returnMsg\":\"successfully\",\"attr1\":\"\",\"attr2\":\"\",\"attr3\":\"\"},\"resultInfo\":{\"SYSTEMTYPE\":\"119\",\"MOMWIPORDER\":{\"WIPORDERNO\":\"001107007298\",\"WIPORDERTYPE\":\"101\",\"PROCESS\":\"Z100000021203-C-1000\",\"PROCESSREVISION\":\"C\",\"ORDERSTATUS\":\"140\",\"PARENTWIPORDERNO\":\"001107007299\",\"PARENTWIPORDERTYPE\":\"101\",\"FACILITY\":\"LHJ1\",\"PRODUCTNO\":\"Z100000021203\",\"PRODUCTTEXT\":\"M000004674786侧墙组成节拍1\",\"ORDERQUANTITY\":\"1\",\"WBSCODE\":\"T-00096-001-04\",\"ZXNUM\":\"产线1\",\"CARNO\":\"2ZB01C04\",\"ZCC\":\"01列04车\",\"SCHEDULEDSTARTDATE\":\"2026-07-29 00:30:00\",\"SCHEDULEDCOMPLETIONDATE\":\"2026-07-29 09:00:00\",\"ZTMBH\":null,\"PROJECTNO\":\"T-00096\",\"PROJECTTEXT\":\"2026年预排产长编350智能动车组\",\"SERIALNO\":\"D07126010008Q\",\"WIPSERIALNO\":[],\"SAPRECORDID\":[],\"ZXPBSH\":null,\"ZJHMS\":null,\"ORDERACTUALSTARTDATE\":\"2026/7/29 0:13:34\",\"ORDERACTUALCOMPLETIONDATE\":\"2026/7/29 7:50:54\",\"OPRACTUALSTARTDATE\":\"2026/7/29 0:13:34\",\"OPRACTUALCOMPLETIONDATE\":\"2026/7/29 6:43:37\",\"CARTYPE\":\"TSD071\",\"SERIALNOUPDATETIME\":\"2026/7/30 5:29:20\",\"INSPCOMPLETETIME\":\"2026-07-29 07:50:54\",\"MOMWIPORDEROPR\":{\"OPRSEQUENCENO\":\"0010\",\"TEXT\":\"清洗打磨侧墙型材\",\"OPRSTATUS\":\"140\",\"WORKCENTER\":\"TS361202010101\",\"STARTEMPLOYEE\":\"60456\",\"SCHEDULEDSTARTDATE\":\"2026-07-29 00:30:00\",\"SCHEDULEDCOMPLETIONDATE\":\"2026-07-29 09:00:00\",\"LOCATION\":\"TS361202010101\",\"MOMCONFIG\":{\"PLABEL\":null,\"PPRODUCTNO\":\"M000004674786\"}}}}}",
+  "elapsed_ms": 6.86,
+  "seq": 17
+ },
+ {
+  "time": "2026-10-26T09:12:21.005Z",
+  "client": "172.19.0.1",
+  "method": "POST",
+  "path": "/api/v1/get_order",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18001",
+   "accept": "*/*",
+   "accept-encoding": "gzip, deflate",
+   "connection": "keep-alive",
+   "user-agent": "python-httpx/0.28.1",
+   "content-length": "232",
+   "content-type": "application/json",
+   "authorization": "Basic ***"
+  },
+  "request_body": "{\"esbInfo\":{\"instId\":null,\"requestTime\":null,\"attr1\":null,\"attr2\":null,\"attr3\":null},\"requestInfo\":{\"SYSTEMTYPE\":119,\"WIPORDERNO\":\"001107007298\",\"WIPORDERTYPE\":\"101\",\"OPRSEQUENCENO\":\"0010\",\"DUMMY1\":null,\"DUMMY2\":null,\"DUMMY3\":null}}",
+  "status": 400,
+  "response_body": "{\"esbInfo\":{\"instId\":\"\",\"requestTime\":\"2026-10-26 17:12:21\",\"responseTime\":\"2026-10-26 17:12:21\",\"returnStatus\":\"E\",\"returnCode\":400,\"returnMsg\":\"requestInfo.SYSTEMTYPE must be a non-empty string\",\"attr1\":\"\",\"attr2\":\"\",\"attr3\":\"\"},\"resultInfo\":null}",
+  "elapsed_ms": 1.71,
+  "seq": 20
+ },
+ {
+  "time": "2026-10-26T09:12:21.049Z",
+  "client": "172.19.0.1",
+  "method": "POST",
+  "path": "/api/v1/get_order",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18001",
+   "accept": "*/*",
+   "accept-encoding": "gzip, deflate",
+   "connection": "keep-alive",
+   "user-agent": "python-httpx/0.28.1",
+   "content-length": "234",
+   "content-type": "application/json",
+   "authorization": "Basic ***"
+  },
+  "request_body": "{\"esbInfo\":{\"instId\":null,\"requestTime\":null,\"attr1\":null,\"attr2\":null,\"attr3\":null},\"requestInfo\":{\"SYSTEMTYPE\":\"119\",\"WIPORDERNO\":\"001107007298\",\"WIPORDERTYPE\":\"101\",\"OPRSEQUENCENO\":\"0010\",\"DUMMY1\":null,\"DUMMY2\":null,\"DUMMY3\":null}}",
+  "status": 401,
+  "response_body": "{\"esbInfo\":{\"instId\":\"\",\"requestTime\":\"2026-10-26 17:12:21\",\"responseTime\":\"2026-10-26 17:12:21\",\"returnStatus\":\"E\",\"returnCode\":401,\"returnMsg\":\"unauthorized\",\"attr1\":\"\",\"attr2\":\"\",\"attr3\":\"\"},\"resultInfo\":null}",
+  "elapsed_ms": 1.06,
+  "seq": 21
+ },
+ {
+  "time": "2026-10-26T09:12:20.962Z",
+  "client": "172.19.0.1",
+  "method": "POST",
+  "path": "/api/v1/get_order",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18001",
+   "accept": "*/*",
+   "accept-encoding": "gzip, deflate",
+   "connection": "keep-alive",
+   "user-agent": "python-httpx/0.28.1",
+   "content-length": "234",
+   "content-type": "application/json",
+   "authorization": "Basic ***"
+  },
+  "request_body": "{\"esbInfo\":{\"instId\":null,\"requestTime\":null,\"attr1\":null,\"attr2\":null,\"attr3\":null},\"requestInfo\":{\"SYSTEMTYPE\":\"119\",\"WIPORDERNO\":\"000000000000\",\"WIPORDERTYPE\":\"101\",\"OPRSEQUENCENO\":\"0010\",\"DUMMY1\":null,\"DUMMY2\":null,\"DUMMY3\":null}}",
+  "status": 404,
+  "response_body": "{\"esbInfo\":{\"instId\":\"\",\"requestTime\":\"2026-10-26 17:12:20\",\"responseTime\":\"2026-10-26 17:12:20\",\"returnStatus\":\"E\",\"returnCode\":404,\"returnMsg\":\"order/operation not found\",\"attr1\":\"\",\"attr2\":\"\",\"attr3\":\"\"},\"resultInfo\":null}",
+  "elapsed_ms": 1.5,
+  "seq": 19
+ },
+ {
+  "time": "2026-10-26T09:10:54.792Z",
+  "client": "185.189.48.12",
+  "method": "POST",
+  "path": "/api/v1/get_orderlist",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18001",
+   "authorization": "Basic ***",
+   "user-agent": "curl/8.5.0",
+   "accept": "*/*",
+   "content-type": "application/json",
+   "content-length": "204"
+  },
+  "request_body": "{\"esbInfo\":{\"instId\":null,\"requestTime\":\"2026-07-30 16:36:50\"},\"requestInfo\":{\"SYSTEMTYPE\":119,\"STARTTIME\":\"2026-07-28 00:00:00\",\"ENDTIME\":\"2026-07-30 16:00:00\",\"WORKCENTER\":\"TS36120201\",\"DEVICEPN\":null}}",
+  "status": 200,
+  "response_body": "{\"esbInfo\":{\"instId\":\"\",\"requestTime\":\"2026-07-30 16:36:50\",\"responseTime\":\"2026-10-26 17:10:54\",\"returnStatus\":\"S\",\"returnCode\":200,\"returnMsg\":\"successfully\",\"attr1\":\"\",\"attr2\":\"\",\"attr3\":\"\",\"queryStartTime\":\"2026-07-28 00:00:00\",\"queryEndTime\":\"2026-07-30 16:00:00\"},\"resultInfo\":{\"SYSTEMTYPE\":119,\"ORDERQUANTITY\":2,\"MOMWIPORDERS\":[{\"WIPORDERNO\":\"001107007298\",\"WIPORDERTYPE\":101,\"ORDERSTATUS\":140,\"TEXT\":\"清洗打磨侧墙型材\",\"OPRSTATUS\":140,\"WORKCENTER\":\"TS36120201\",\"LASTUPDATEON\":\"2026-07-29T07:50:54\",\"OPRSEQUENCENO\":\"0010\"},{\"WIPORDERNO\":\"001107506304\",\"WIPORDERTYPE\":101,\"ORDERSTATUS\":0,\"TEXT\":\"修磨焊缝\",\"OPRSTATUS\":140,\"WORKCENTER\":\"TS36120201\",\"LASTUPDATEON\":\"2026-07-30T08:19:42\",\"OPRSEQUENCENO\":\"0040\"}]}}",
+  "elapsed_ms": 43.92,
+  "seq": 1
+ },
+ {
+  "time": "2026-10-26T09:12:20.467Z",
+  "client": "172.19.0.1",
+  "method": "POST",
+  "path": "/api/v1/get_orderlist",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18001",
+   "accept": "*/*",
+   "accept-encoding": "gzip, deflate",
+   "connection": "keep-alive",
+   "user-agent": "python-httpx/0.28.1",
+   "content-length": "243",
+   "content-type": "application/json",
+   "authorization": "Basic ***"
+  },
+  "request_body": "{\"esbInfo\":{\"instId\":null,\"requestTime\":\"2026-07-30 16:36:50\",\"attr1\":null,\"attr2\":null,\"attr3\":null},\"requestInfo\":{\"SYSTEMTYPE\":119,\"STARTTIME\":\"2026/07/28 00:00:00\",\"ENDTIME\":\"2026-07-30 16:00:00\",\"WORKCENTER\":\"TS36120201\",\"DEVICEPN\":null}}",
+  "status": 400,
+  "response_body": "{\"esbInfo\":{\"instId\":\"\",\"requestTime\":\"2026-07-30 16:36:50\",\"responseTime\":\"2026-10-26 17:12:20\",\"returnStatus\":\"E\",\"returnCode\":400,\"returnMsg\":\"STARTTIME/ENDTIME are required in format yyyy-MM-dd HH:mm:ss\",\"attr1\":\"\",\"attr2\":\"\",\"attr3\":\"\"},\"resultInfo\":null}",
+  "elapsed_ms": 2.02,
+  "seq": 10
+ },
+ {
+  "time": "2026-10-26T09:12:20.352Z",
+  "client": "172.19.0.1",
+  "method": "POST",
+  "path": "/api/v1/get_orderlist",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18001",
+   "accept": "*/*",
+   "accept-encoding": "gzip, deflate",
+   "connection": "keep-alive",
+   "user-agent": "python-httpx/0.28.1",
+   "content-length": "243",
+   "content-type": "application/json"
+  },
+  "request_body": "{\"esbInfo\":{\"instId\":null,\"requestTime\":\"2026-07-30 16:36:50\",\"attr1\":null,\"attr2\":null,\"attr3\":null},\"requestInfo\":{\"SYSTEMTYPE\":119,\"STARTTIME\":\"2026-07-28 00:00:00\",\"ENDTIME\":\"2026-07-30 16:00:00\",\"WORKCENTER\":\"TS36120201\",\"DEVICEPN\":null}}",
+  "status": 401,
+  "response_body": "{\"esbInfo\":{\"instId\":\"\",\"requestTime\":\"2026-10-26 17:12:20\",\"responseTime\":\"2026-10-26 17:12:20\",\"returnStatus\":\"E\",\"returnCode\":401,\"returnMsg\":\"unauthorized\",\"attr1\":\"\",\"attr2\":\"\",\"attr3\":\"\"},\"resultInfo\":null}",
+  "elapsed_ms": 1.96,
+  "seq": 8
+ }
+]

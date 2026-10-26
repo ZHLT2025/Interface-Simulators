@@ -1,0 +1,104 @@
+[
+ {
+  "time": "2026-10-26T09:12:09.289Z",
+  "client": "172.19.0.1",
+  "method": "POST",
+  "path": "/open/deviceHistory/getDeviceData",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18002",
+   "accept-encoding": "gzip, deflate",
+   "connection": "keep-alive",
+   "user-agent": "python-httpx/0.28.1",
+   "x-factory-code": "BJZHLT",
+   "accept": "application/json",
+   "content-type": "application/json",
+   "content-length": "88"
+  },
+  "request_body": "{\"startTime\":\"2026-07-01 10:00:00\",\"endTime\":\"2026-07-01 12:00:00\",\"deviceCode\":\"cqx11\"}",
+  "status": 200,
+  "response_body": "{\"success\":true,\"code\":0,\"message\":\"操作成功\",\"data\":[{\"deviceCode\":\"cqx11\",\"paramCode\":\"Device2.DBJZDHNHJWD2\",\"historyData\":[{\"serverTime\":\"2026-07-01 11:59:59\",\"sourceTime\":\"2009-09-01 11:57:07\",\"value\":\"32.0\"}]},{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.CurrentPS1\",\"historyData\":[{\"serverTime\":\"2026-07-01 11:40:59\",\"sourceTime\":\"2009-09-01 11:38:06\",\"value\":\"0.0\"},{\"serverTime\":\"2026-07-01 11:44:59\",\"sourceTime\":\"2009-09-01 11:42:06\",\"value\":\"198.12345\"},{\"serverTime\":\"2026-07-01 11:48:59\",\"sourceTime\":\"2009-09-01 11:46:06\",\"value\":\"203.99786\"}]},{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.MotWorkSpeed\",\"historyData\":[{\"serverTime\":\"2026-07-01 11:48:59\",\"sourceTime\":\"2009-09-01 11:46:06\",\"value\":\"18.996836\"}]},{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.VoltagePS1\",\"historyData\":[{\"serverTime\":\"2026-07-01 11:48:59\",\"sourceTime\":\"2009-09-01 11:46:06\",\"value\":\"19.198902\"}]}]}",
+  "elapsed_ms": 130.56,
+  "seq": 10
+ },
+ {
+  "time": "2026-10-26T09:10:54.823Z",
+  "client": "185.189.48.12",
+  "method": "GET",
+  "path": "/open/deviceList",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18002",
+   "user-agent": "curl/8.5.0",
+   "accept": "*/*",
+   "x-factory-code": "BJZHLT"
+  },
+  "request_body": "",
+  "status": 200,
+  "response_body": "{\"success\":true,\"code\":0,\"message\":\"操作成功\",\"data\":[{\"fundingCode\":\"046-4\",\"deviceCode\":\"000000100004060013\",\"deviceName\":\"铝合金铝合金FOOKE加工中心\"},{\"fundingCode\":\"999-00690\",\"deviceCode\":\"ckdm1\",\"deviceName\":\"侧墙自动化打磨设备-1\"},{\"fundingCode\":\"999-00690\",\"deviceCode\":\"ckdm2\",\"deviceName\":\"侧墙自动化打磨设备-2\"},{\"fundingCode\":\"999-00690\",\"deviceCode\":\"ckdm3\",\"deviceName\":\"侧墙自动化打磨设备-3\"},{\"fundingCode\":\"046-00019\",\"deviceCode\":\"000000100004060007\",\"deviceName\":\"铝合金龙门加工中心\"},{\"fundingCode\":\"999-00655\",\"deviceCode\":\"dxdm\",\"deviceName\":\"侧墙自动化打磨设备\"},{\"fundingCode\":\"269-00066\",\"deviceCode\":\"cqx11\",\"deviceName\":\"大部件自动焊设备-1\"},{\"fundingCode\":\"269-00066\",\"deviceCode\":\"cqx12\",\"deviceName\":\"大部件自动焊设备-2\"},{\"fundingCode\":\"269-00067\",\"deviceCode\":\"cqx21\",\"deviceName\":\"大部件自动焊设备-1\"},{\"fundingCode\":\"269-00067\",\"deviceCode\":\"cqx22\",\"deviceName\":\"大部件自动焊设备-2\"}]}",
+  "elapsed_ms": 5.08,
+  "seq": 1
+ },
+ {
+  "time": "2026-10-26T09:12:08.991Z",
+  "client": "172.19.0.1",
+  "method": "POST",
+  "path": "/open/deviceParamList",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18002",
+   "accept-encoding": "gzip, deflate",
+   "connection": "keep-alive",
+   "user-agent": "python-httpx/0.28.1",
+   "x-factory-code": "BJZHLT",
+   "accept": "application/json",
+   "content-type": "application/json",
+   "content-length": "9"
+  },
+  "request_body": "[\"cqx11\"]",
+  "status": 200,
+  "response_body": "{\"success\":true,\"code\":0,\"message\":\"操作成功\",\"data\":[{\"deviceCode\":\"cqx11\",\"params\":[{\"paramCode\":\"DDB1.A相功率因数\",\"paramName\":\"A相功率因数\",\"paramType\":\"float\",\"paramUnit\":null},{\"paramCode\":\"DDB1.A相电压\",\"paramName\":\"A相电压\",\"paramType\":\"float\",\"paramUnit\":\"V\"},{\"paramCode\":\"DDB1.A相电流\",\"paramName\":\"A相电流\",\"paramType\":\"float\",\"paramUnit\":\"A\"},{\"paramCode\":\"DDB1.B相功率因数\",\"paramName\":\"B相功率因数\",\"paramType\":\"float\",\"paramUnit\":null},{\"paramCode\":\"DDB1.B相电压\",\"paramName\":\"B相电压\",\"paramType\":\"float\",\"paramUnit\":\"V\"},{\"paramCode\":\"DDB1.B相电流\",\"paramName\":\"B相电流\",\"paramType\":\"float\",\"paramUnit\":\"A\"},{\"paramCode\":\"DDB1.C相功率因数\",\"paramName\":\"C相功率因数\",\"paramType\":\"float\",\"paramUnit\":null},{\"paramCode\":\"DDB1.C相电压\",\"paramName\":\"C相电压\",\"paramType\":\"float\",\"paramUnit\":\"V\"},{\"paramCode\":\"DDB1.C相电流\",\"paramName\":\"C相电流\",\"paramType\":\"float\",\"paramUnit\":\"A\"},{\"paramCode\":\"DDB1.总功率因数\",\"paramName\":\"总功率因数\",\"paramType\":\"float\",\"paramUnit\":null},{\"paramCode\":\"DDB1.总瞬时有功功率\",\"paramName\":\"总瞬时有功功率\",\"paramType\":\"float\",\"paramUnit\":\"kw\"},{\"paramCode\":\"DDB1.正向有功总电量\",\"paramName\":\"正向有功总电量\",\"paramType\":\"float\",\"paramUnit\":\"kw/h\"},{\"paramCode\":\"DDB1.电网频率\",\"paramName\":\"电网频率\",\"paramType\":\"float\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.ActiveSubStation\",\"paramName\":\"工作站激活\",\"paramType\":\"boolean\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.ActiveTechDev\",\"paramName\":\"程序库激活\",\"paramType\":\"boolean\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.ActiveTool\",\"paramName\":\"工具激活\",\"paramType\":\"boolean\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.CurrentPS1\",\"paramName\":\"焊接电流ps1\",\"paramType\":\"float\",\"paramUnit\":\"A\"},{\"paramCode\":\"HJ1.S0.CurrentPS2\",\"paramName\":\"焊接电流ps2\",\"paramType\":\"float\",\"paramUnit\":\"A\"},{\"paramCode\":\"HJ1.S0.CurrentProgram\",\"paramName\":\"当前程序号\",\"paramType\":\"string\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.CurrentStepNumber\",\"paramName\":\"当前程序步\",\"paramType\":\"float\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.DriversAreReady\",\"paramName\":\"驱动已打开\",\"paramType\":\"boolean\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.DrivesAreOn\",\"paramName\":\"驱动已打开\",\"paramType\":\"int\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.DrivesOn\",\"paramName\":\"驱动打开时间\",\"paramType\":\"int\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.EndTime\",\"paramName\":\"停止采集日期\",\"paramType\":\"string\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.ErrorNumberSP1\",\"paramName\":\"错误代码sp1\",\"paramType\":\"int\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.ErrorNumberSP2\",\"paramName\":\"错误代码sp2\",\"paramType\":\"int\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.InAutomatic\",\"paramName\":\"自动模式操作时间\",\"paramType\":\"float\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.JobNumberSP1\",\"paramName\":\"手工号sp1\",\"paramType\":\"int\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.JobNumberSP2\",\"paramName\":\"手工号sp2\",\"paramType\":\"int\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.LatestMessageId\",\"paramName\":\"最后报警信息ID\",\"paramType\":\"int\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.MaxMessageCount\",\"paramName\":\"最大报警信息数\",\"paramType\":\"string\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.MessageCount\",\"paramName\":\"报警信息数\",\"paramType\":\"int\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.MotWorkSpeed\",\"paramName\":\"焊接速度\",\"paramType\":\"float\",\"paramUnit\":\"cm/min\"},{\"paramCode\":\"HJ1.S0.MotorcurrentPS1\",\"paramName\":\"送丝电流ps1\",\"paramType\":\"float\",\"paramUnit\":\"A\"},{\"paramCode\":\"HJ1.S0.MotorcurrentPS2\",\"paramName\":\"送丝电流ps2\",\"paramType\":\"float\",\"paramUnit\":\"A\"},{\"paramCode\":\"HJ1.S0.MovTcp\",\"paramName\":\"TCP位姿\",\"paramType\":\"string\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.Online\",\"paramName\":\"在线\",\"paramType\":\"boolean\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.OpMode\",\"paramName\":\"操作模式\",\"paramType\":\"int\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.ParametersLoaded\",\"paramName\":\"参数已加载\",\"paramType\":\"boolean\",\"paramUnit\":null},{\"paramCode\":\"HJ1.S0.P",
+  "elapsed_ms": 8.63,
+  "seq": 6
+ },
+ {
+  "time": "2026-10-26T09:12:09.660Z",
+  "client": "172.19.0.1",
+  "method": "PUT",
+  "path": "/open/sendConfig/fullUpdate",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18002",
+   "accept-encoding": "gzip, deflate",
+   "connection": "keep-alive",
+   "user-agent": "python-httpx/0.28.1",
+   "x-factory-code": "BJZHLT",
+   "accept": "application/json",
+   "content-type": "application/json",
+   "content-length": "146"
+  },
+  "request_body": "{\"sendFrequency\":2,\"deviceParams\":[{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.CurrentPS1\"},{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.VoltagePS1\"}]}",
+  "status": 200,
+  "response_body": "{\"success\":true,\"code\":0,\"message\":\"操作成功\",\"data\":{\"sendFrequency\":2,\"deviceParams\":[{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.CurrentPS1\"},{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.VoltagePS1\"}]}}",
+  "elapsed_ms": 10.35,
+  "seq": 17
+ },
+ {
+  "time": "2026-10-26T09:10:54.849Z",
+  "client": "185.189.48.12",
+  "method": "GET",
+  "path": "/open/sendConfig/list",
+  "query": "",
+  "headers": {
+   "host": "185.189.48.12:18002",
+   "user-agent": "curl/8.5.0",
+   "accept": "*/*",
+   "x-factory-code": "BJZHLT"
+  },
+  "request_body": "",
+  "status": 200,
+  "response_body": "{\"success\":true,\"code\":0,\"message\":\"操作成功\",\"data\":{\"sendFrequency\":1,\"deviceParams\":[{\"deviceCode\":\"000000100004060007\",\"paramCode\":\"ns=2;s=FOOKED60.calc.alarm_count\"},{\"deviceCode\":\"000000100004060007\",\"paramCode\":\"ns=2;s=FOOKED60.calc.alarm_times\"},{\"deviceCode\":\"ckdm1\",\"paramCode\":\"窗口打磨.ChuangkPLCDB17.单个窗口打磨时间\"},{\"deviceCode\":\"ckdm1\",\"paramCode\":\"窗口打磨.ChuangkPLCDB17.工件到位\"},{\"deviceCode\":\"ckdm1\",\"paramCode\":\"窗口打磨.ChuangkPLCDB17.机器人1EX姿态\"},{\"deviceCode\":\"ckdm1\",\"paramCode\":\"窗口打磨.ChuangkPLCDB17.机器人1EY姿态\"},{\"deviceCode\":\"ckdm1\",\"paramCode\":\"窗口打磨.ChuangkPLCDB17.机器人1EZ姿态\"},{\"deviceCode\":\"ckdm1\",\"paramCode\":\"窗口打磨.ChuangkPLCDB17.机器人1X姿态\"},{\"deviceCode\":\"ckdm1\",\"paramCode\":\"窗口打磨.ChuangkPLCDB17.机器人1Y姿态\"},{\"deviceCode\":\"ckdm1\",\"paramCode\":\"窗口打磨.ChuangkPLCDB17.机器人1Z姿态\"},{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.ActiveSubStation\"},{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.ActiveTechDev\"},{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.ActiveTool\"},{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.CurrentProgram\"},{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.CurrentPS1\"},{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.CurrentPS2\"},{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.CurrentStepNumber\"},{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.DriversAreReady\"},{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.DrivesAreOn\"},{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.DrivesOn\"},{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.EndTime\"},{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.ErrorNumberSP1\"},{\"deviceCode\":\"cqx11\",\"paramCode\":\"HJ1.S0.ErrorNumberSP2\"},{\"deviceCode\":\"dxdm\",\"paramCode\":\"大线打磨.DAxPLCDB4.A基准\"},{\"deviceCode\":\"dxdm\",\"paramCode\":\"大线打磨.DAxPLCDB4.x基准\"},{\"deviceCode\":\"dxdm\",\"paramCode\":\"大线打磨.DAxPLCDB4.z基准\"},{\"deviceCode\":\"dxdm\",\"paramCode\":\"大线打磨.DAxPLCDB4.右工位到位\"},{\"deviceCode\":\"dxdm\",\"paramCode\":\"大线打磨.DAxPLCDB4.工件到位\"},{\"deviceCode\":\"dxdm\",\"paramCode\":\"大线打磨.DAxPLCDB4.左工位到位\"},{\"deviceCode\":\"dxdm\",\"paramCode\":\"大线打磨.DAxPLCDB4.打磨压力反馈\"},{\"deviceCode\":\"dxdm\",\"paramCode\":\"大线打磨.DAxPLCDB4.打磨速度\"},{\"deviceCode\":\"dxdm\",\"paramCode\":\"大线打磨.DAxPLCDB4.整墙开始\"},{\"deviceCode\":\"dxdm\",\"paramCode\":\"大线打磨.DAxPLCDB4.整墙结束\"},{\"deviceCode\":\"dxdm\",\"paramCode\":\"大线打磨.DAxPLCDB4.机器人EX姿态\"},{\"deviceCode\":\"dxdm\",\"paramCode\":\"大线打磨.DAxPLCDB4.机器人EY姿态\"},{\"deviceCode\":\"dxdm\",\"paramCode\":\"大线打磨.DAxPLCDB4.机器人EZ姿态\"},{\"deviceCode\":\"dxdm\",\"paramCode\":\"大线打磨.DAxPLCDB4.机器人X姿态\"},{\"deviceCode\":\"dxdm\",\"paramCode\":\"大线打磨.DAxPLCDB4.机器人Y姿态\"},{\"deviceCode\":\"dxdm\",\"paramCode\":\"大线打磨.DAxPLCDB4.机器人Z姿态\"}]}}",
+  "elapsed_ms": 4.07,
+  "seq": 2
+ }
+]

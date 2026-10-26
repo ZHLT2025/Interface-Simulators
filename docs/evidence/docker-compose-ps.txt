@@ -1,0 +1,6 @@
+NAME       IMAGE                        STATUS                    PORTS
+sim-cv     interface-simulators:local   Up 4 minutes (healthy)    0.0.0.0:18004->8000/tcp
+sim-esb    interface-simulators:local   Up 25 seconds (healthy)   0.0.0.0:18003->8000/tcp
+sim-iot    interface-simulators:local   Up 25 seconds (healthy)   0.0.0.0:18002->8000/tcp
+sim-mom    interface-simulators:local   Up 25 seconds (healthy)   0.0.0.0:18001->8000/tcp
+sim-mqtt   eclipse-mosquitto:2          Up 12 minutes (healthy)   0.0.0.0:18830->1883/tcp

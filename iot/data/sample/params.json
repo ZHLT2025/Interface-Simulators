@@ -1,0 +1,1699 @@
+{
+ "_comment": "IF-IOT-002 设备参数清单样例。参数编码/类型/单位按《接口定义说明书三》19.4.2 示例及 21.4.2 推送配置示例整理；其余点位为协议验证占位，非客户正式参数表。",
+ "devices": [
+  {
+   "deviceCode": "cqx11",
+   "params": [
+    {
+     "paramCode": "DDB1.A相功率因数",
+     "paramName": "A相功率因数",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "DDB1.A相电压",
+     "paramName": "A相电压",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "DDB1.A相电流",
+     "paramName": "A相电流",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "DDB1.B相功率因数",
+     "paramName": "B相功率因数",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "DDB1.B相电压",
+     "paramName": "B相电压",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "DDB1.B相电流",
+     "paramName": "B相电流",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "DDB1.C相功率因数",
+     "paramName": "C相功率因数",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "DDB1.C相电压",
+     "paramName": "C相电压",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "DDB1.C相电流",
+     "paramName": "C相电流",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "DDB1.总功率因数",
+     "paramName": "总功率因数",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "DDB1.总瞬时有功功率",
+     "paramName": "总瞬时有功功率",
+     "paramType": "float",
+     "paramUnit": "kw"
+    },
+    {
+     "paramCode": "DDB1.正向有功总电量",
+     "paramName": "正向有功总电量",
+     "paramType": "float",
+     "paramUnit": "kw/h"
+    },
+    {
+     "paramCode": "DDB1.电网频率",
+     "paramName": "电网频率",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ActiveSubStation",
+     "paramName": "工作站激活",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ActiveTechDev",
+     "paramName": "程序库激活",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ActiveTool",
+     "paramName": "工具激活",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.CurrentPS1",
+     "paramName": "焊接电流ps1",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "HJ1.S0.CurrentPS2",
+     "paramName": "焊接电流ps2",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "HJ1.S0.CurrentProgram",
+     "paramName": "当前程序号",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.CurrentStepNumber",
+     "paramName": "当前程序步",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.DriversAreReady",
+     "paramName": "驱动已打开",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.DrivesAreOn",
+     "paramName": "驱动已打开",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.DrivesOn",
+     "paramName": "驱动打开时间",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.EndTime",
+     "paramName": "停止采集日期",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ErrorNumberSP1",
+     "paramName": "错误代码sp1",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ErrorNumberSP2",
+     "paramName": "错误代码sp2",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.InAutomatic",
+     "paramName": "自动模式操作时间",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.JobNumberSP1",
+     "paramName": "手工号sp1",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.JobNumberSP2",
+     "paramName": "手工号sp2",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.LatestMessageId",
+     "paramName": "最后报警信息ID",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.MaxMessageCount",
+     "paramName": "最大报警信息数",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.MessageCount",
+     "paramName": "报警信息数",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.MotWorkSpeed",
+     "paramName": "焊接速度",
+     "paramType": "float",
+     "paramUnit": "cm/min"
+    },
+    {
+     "paramCode": "HJ1.S0.MotorcurrentPS1",
+     "paramName": "送丝电流ps1",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "HJ1.S0.MotorcurrentPS2",
+     "paramName": "送丝电流ps2",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "HJ1.S0.MovTcp",
+     "paramName": "TCP位姿",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.Online",
+     "paramName": "在线",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.OpMode",
+     "paramName": "操作模式",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ParametersLoaded",
+     "paramName": "参数已加载",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ProgramNumberSP1",
+     "paramName": "专家库号sp1",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ProgramNumberSP2",
+     "paramName": "专家库号sp2",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.Running",
+     "paramName": "PRG程序运行时间",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.StartTime",
+     "paramName": "开始采集日期",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.Stopped",
+     "paramName": "设备停止时间",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.TOROCHActive",
+     "paramName": "工具已激活",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.TOROCHRunning",
+     "paramName": "正在焊接",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.TTDIGIIsRunning",
+     "paramName": "正在焊接",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.VoltagePS1",
+     "paramName": "焊接电压ps1",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "HJ1.S0.VoltagePS2",
+     "paramName": "焊接电压ps2",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "HJ1.S0.Waterflow",
+     "paramName": "水流量",
+     "paramType": "float",
+     "paramUnit": "m³/h"
+    },
+    {
+     "paramCode": "HJ1.S0.WirespeedPS1",
+     "paramName": "送丝速度sp1",
+     "paramType": "float",
+     "paramUnit": "cm/min"
+    },
+    {
+     "paramCode": "HJ1.S0.WirespeedPS2",
+     "paramName": "送丝速度sp2",
+     "paramType": "float",
+     "paramUnit": "cm/min"
+    },
+    {
+     "paramCode": "Device1.DBJZDHNJGSL1",
+     "paramName": "北侧激光回水口水流量",
+     "paramType": "float",
+     "paramUnit": "m³/h"
+    },
+    {
+     "paramCode": "Device2.DBJZDHNHJWD1",
+     "paramName": "北侧焊机回水口温度",
+     "paramType": "float",
+     "paramUnit": "℃"
+    },
+    {
+     "paramCode": "Device2.DBJZDHNHJWD2",
+     "paramName": "北侧焊机回水口温度2",
+     "paramType": "float",
+     "paramUnit": "℃"
+    },
+    {
+     "paramCode": "Device2.DBJZDHNJGWD1",
+     "paramName": "北侧激光回水口温度",
+     "paramType": "float",
+     "paramUnit": "℃"
+    },
+    {
+     "paramCode": "calculate.DBJZDHNJGSLL",
+     "paramName": "北侧激光回水口水流量计算点",
+     "paramType": "float",
+     "paramUnit": "L/min"
+    }
+   ]
+  },
+  {
+   "deviceCode": "cqx12",
+   "params": [
+    {
+     "paramCode": "DDB1.A相功率因数",
+     "paramName": "A相功率因数",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "DDB1.A相电压",
+     "paramName": "A相电压",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "DDB1.A相电流",
+     "paramName": "A相电流",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "DDB1.B相功率因数",
+     "paramName": "B相功率因数",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "DDB1.B相电压",
+     "paramName": "B相电压",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "DDB1.B相电流",
+     "paramName": "B相电流",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "DDB1.C相功率因数",
+     "paramName": "C相功率因数",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "DDB1.C相电压",
+     "paramName": "C相电压",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "DDB1.C相电流",
+     "paramName": "C相电流",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "DDB1.总功率因数",
+     "paramName": "总功率因数",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "DDB1.总瞬时有功功率",
+     "paramName": "总瞬时有功功率",
+     "paramType": "float",
+     "paramUnit": "kw"
+    },
+    {
+     "paramCode": "DDB1.正向有功总电量",
+     "paramName": "正向有功总电量",
+     "paramType": "float",
+     "paramUnit": "kw/h"
+    },
+    {
+     "paramCode": "DDB1.电网频率",
+     "paramName": "电网频率",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ActiveSubStation",
+     "paramName": "工作站激活",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ActiveTechDev",
+     "paramName": "程序库激活",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ActiveTool",
+     "paramName": "工具激活",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.CurrentPS1",
+     "paramName": "焊接电流ps1",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "HJ1.S0.CurrentPS2",
+     "paramName": "焊接电流ps2",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "HJ1.S0.CurrentProgram",
+     "paramName": "当前程序号",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.CurrentStepNumber",
+     "paramName": "当前程序步",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.DriversAreReady",
+     "paramName": "驱动已打开",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.DrivesAreOn",
+     "paramName": "驱动已打开",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.DrivesOn",
+     "paramName": "驱动打开时间",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.EndTime",
+     "paramName": "停止采集日期",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ErrorNumberSP1",
+     "paramName": "错误代码sp1",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ErrorNumberSP2",
+     "paramName": "错误代码sp2",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.InAutomatic",
+     "paramName": "自动模式操作时间",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.JobNumberSP1",
+     "paramName": "手工号sp1",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.JobNumberSP2",
+     "paramName": "手工号sp2",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.LatestMessageId",
+     "paramName": "最后报警信息ID",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.MaxMessageCount",
+     "paramName": "最大报警信息数",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.MessageCount",
+     "paramName": "报警信息数",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.MotWorkSpeed",
+     "paramName": "焊接速度",
+     "paramType": "float",
+     "paramUnit": "cm/min"
+    },
+    {
+     "paramCode": "HJ1.S0.MotorcurrentPS1",
+     "paramName": "送丝电流ps1",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "HJ1.S0.MotorcurrentPS2",
+     "paramName": "送丝电流ps2",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "HJ1.S0.MovTcp",
+     "paramName": "TCP位姿",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.Online",
+     "paramName": "在线",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.OpMode",
+     "paramName": "操作模式",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ParametersLoaded",
+     "paramName": "参数已加载",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ProgramNumberSP1",
+     "paramName": "专家库号sp1",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ProgramNumberSP2",
+     "paramName": "专家库号sp2",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.Running",
+     "paramName": "PRG程序运行时间",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.StartTime",
+     "paramName": "开始采集日期",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.Stopped",
+     "paramName": "设备停止时间",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.TOROCHActive",
+     "paramName": "工具已激活",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.TOROCHRunning",
+     "paramName": "正在焊接",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.TTDIGIIsRunning",
+     "paramName": "正在焊接",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.VoltagePS1",
+     "paramName": "焊接电压ps1",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "HJ1.S0.VoltagePS2",
+     "paramName": "焊接电压ps2",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "HJ1.S0.Waterflow",
+     "paramName": "水流量",
+     "paramType": "float",
+     "paramUnit": "m³/h"
+    },
+    {
+     "paramCode": "HJ1.S0.WirespeedPS1",
+     "paramName": "送丝速度sp1",
+     "paramType": "float",
+     "paramUnit": "cm/min"
+    },
+    {
+     "paramCode": "HJ1.S0.WirespeedPS2",
+     "paramName": "送丝速度sp2",
+     "paramType": "float",
+     "paramUnit": "cm/min"
+    },
+    {
+     "paramCode": "Device1.DBJZDHNJGSL1",
+     "paramName": "北侧激光回水口水流量",
+     "paramType": "float",
+     "paramUnit": "m³/h"
+    },
+    {
+     "paramCode": "Device2.DBJZDHNHJWD1",
+     "paramName": "北侧焊机回水口温度",
+     "paramType": "float",
+     "paramUnit": "℃"
+    },
+    {
+     "paramCode": "Device2.DBJZDHNHJWD2",
+     "paramName": "北侧焊机回水口温度2",
+     "paramType": "float",
+     "paramUnit": "℃"
+    },
+    {
+     "paramCode": "Device2.DBJZDHNJGWD1",
+     "paramName": "北侧激光回水口温度",
+     "paramType": "float",
+     "paramUnit": "℃"
+    },
+    {
+     "paramCode": "calculate.DBJZDHNJGSLL",
+     "paramName": "北侧激光回水口水流量计算点",
+     "paramType": "float",
+     "paramUnit": "L/min"
+    }
+   ]
+  },
+  {
+   "deviceCode": "cqx21",
+   "params": [
+    {
+     "paramCode": "DDB1.A相功率因数",
+     "paramName": "A相功率因数",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "DDB1.A相电压",
+     "paramName": "A相电压",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "DDB1.A相电流",
+     "paramName": "A相电流",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "DDB1.B相功率因数",
+     "paramName": "B相功率因数",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "DDB1.B相电压",
+     "paramName": "B相电压",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "DDB1.B相电流",
+     "paramName": "B相电流",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "DDB1.C相功率因数",
+     "paramName": "C相功率因数",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "DDB1.C相电压",
+     "paramName": "C相电压",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "DDB1.C相电流",
+     "paramName": "C相电流",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "DDB1.总功率因数",
+     "paramName": "总功率因数",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "DDB1.总瞬时有功功率",
+     "paramName": "总瞬时有功功率",
+     "paramType": "float",
+     "paramUnit": "kw"
+    },
+    {
+     "paramCode": "DDB1.正向有功总电量",
+     "paramName": "正向有功总电量",
+     "paramType": "float",
+     "paramUnit": "kw/h"
+    },
+    {
+     "paramCode": "DDB1.电网频率",
+     "paramName": "电网频率",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ActiveSubStation",
+     "paramName": "工作站激活",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ActiveTechDev",
+     "paramName": "程序库激活",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ActiveTool",
+     "paramName": "工具激活",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.CurrentPS1",
+     "paramName": "焊接电流ps1",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "HJ1.S0.CurrentPS2",
+     "paramName": "焊接电流ps2",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "HJ1.S0.CurrentProgram",
+     "paramName": "当前程序号",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.CurrentStepNumber",
+     "paramName": "当前程序步",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.DriversAreReady",
+     "paramName": "驱动已打开",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.DrivesAreOn",
+     "paramName": "驱动已打开",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.DrivesOn",
+     "paramName": "驱动打开时间",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.EndTime",
+     "paramName": "停止采集日期",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ErrorNumberSP1",
+     "paramName": "错误代码sp1",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ErrorNumberSP2",
+     "paramName": "错误代码sp2",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.InAutomatic",
+     "paramName": "自动模式操作时间",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.JobNumberSP1",
+     "paramName": "手工号sp1",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.JobNumberSP2",
+     "paramName": "手工号sp2",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.LatestMessageId",
+     "paramName": "最后报警信息ID",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.MaxMessageCount",
+     "paramName": "最大报警信息数",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.MessageCount",
+     "paramName": "报警信息数",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.MotWorkSpeed",
+     "paramName": "焊接速度",
+     "paramType": "float",
+     "paramUnit": "cm/min"
+    },
+    {
+     "paramCode": "HJ1.S0.MotorcurrentPS1",
+     "paramName": "送丝电流ps1",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "HJ1.S0.MotorcurrentPS2",
+     "paramName": "送丝电流ps2",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "HJ1.S0.MovTcp",
+     "paramName": "TCP位姿",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.Online",
+     "paramName": "在线",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.OpMode",
+     "paramName": "操作模式",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ParametersLoaded",
+     "paramName": "参数已加载",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ProgramNumberSP1",
+     "paramName": "专家库号sp1",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ProgramNumberSP2",
+     "paramName": "专家库号sp2",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.Running",
+     "paramName": "PRG程序运行时间",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.StartTime",
+     "paramName": "开始采集日期",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.Stopped",
+     "paramName": "设备停止时间",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.TOROCHActive",
+     "paramName": "工具已激活",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.TOROCHRunning",
+     "paramName": "正在焊接",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.TTDIGIIsRunning",
+     "paramName": "正在焊接",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.VoltagePS1",
+     "paramName": "焊接电压ps1",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "HJ1.S0.VoltagePS2",
+     "paramName": "焊接电压ps2",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "HJ1.S0.Waterflow",
+     "paramName": "水流量",
+     "paramType": "float",
+     "paramUnit": "m³/h"
+    },
+    {
+     "paramCode": "HJ1.S0.WirespeedPS1",
+     "paramName": "送丝速度sp1",
+     "paramType": "float",
+     "paramUnit": "cm/min"
+    },
+    {
+     "paramCode": "HJ1.S0.WirespeedPS2",
+     "paramName": "送丝速度sp2",
+     "paramType": "float",
+     "paramUnit": "cm/min"
+    },
+    {
+     "paramCode": "Device1.DBJZDHNJGSL1",
+     "paramName": "北侧激光回水口水流量",
+     "paramType": "float",
+     "paramUnit": "m³/h"
+    },
+    {
+     "paramCode": "Device2.DBJZDHNHJWD1",
+     "paramName": "北侧焊机回水口温度",
+     "paramType": "float",
+     "paramUnit": "℃"
+    },
+    {
+     "paramCode": "Device2.DBJZDHNHJWD2",
+     "paramName": "北侧焊机回水口温度2",
+     "paramType": "float",
+     "paramUnit": "℃"
+    },
+    {
+     "paramCode": "Device2.DBJZDHNJGWD1",
+     "paramName": "北侧激光回水口温度",
+     "paramType": "float",
+     "paramUnit": "℃"
+    },
+    {
+     "paramCode": "calculate.DBJZDHNJGSLL",
+     "paramName": "北侧激光回水口水流量计算点",
+     "paramType": "float",
+     "paramUnit": "L/min"
+    }
+   ]
+  },
+  {
+   "deviceCode": "cqx22",
+   "params": [
+    {
+     "paramCode": "DDB1.A相功率因数",
+     "paramName": "A相功率因数",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "DDB1.A相电压",
+     "paramName": "A相电压",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "DDB1.A相电流",
+     "paramName": "A相电流",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "DDB1.B相功率因数",
+     "paramName": "B相功率因数",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "DDB1.B相电压",
+     "paramName": "B相电压",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "DDB1.B相电流",
+     "paramName": "B相电流",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "DDB1.C相功率因数",
+     "paramName": "C相功率因数",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "DDB1.C相电压",
+     "paramName": "C相电压",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "DDB1.C相电流",
+     "paramName": "C相电流",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "DDB1.总功率因数",
+     "paramName": "总功率因数",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "DDB1.总瞬时有功功率",
+     "paramName": "总瞬时有功功率",
+     "paramType": "float",
+     "paramUnit": "kw"
+    },
+    {
+     "paramCode": "DDB1.正向有功总电量",
+     "paramName": "正向有功总电量",
+     "paramType": "float",
+     "paramUnit": "kw/h"
+    },
+    {
+     "paramCode": "DDB1.电网频率",
+     "paramName": "电网频率",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ActiveSubStation",
+     "paramName": "工作站激活",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ActiveTechDev",
+     "paramName": "程序库激活",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ActiveTool",
+     "paramName": "工具激活",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.CurrentPS1",
+     "paramName": "焊接电流ps1",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "HJ1.S0.CurrentPS2",
+     "paramName": "焊接电流ps2",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "HJ1.S0.CurrentProgram",
+     "paramName": "当前程序号",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.CurrentStepNumber",
+     "paramName": "当前程序步",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.DriversAreReady",
+     "paramName": "驱动已打开",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.DrivesAreOn",
+     "paramName": "驱动已打开",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.DrivesOn",
+     "paramName": "驱动打开时间",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.EndTime",
+     "paramName": "停止采集日期",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ErrorNumberSP1",
+     "paramName": "错误代码sp1",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ErrorNumberSP2",
+     "paramName": "错误代码sp2",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.InAutomatic",
+     "paramName": "自动模式操作时间",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.JobNumberSP1",
+     "paramName": "手工号sp1",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.JobNumberSP2",
+     "paramName": "手工号sp2",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.LatestMessageId",
+     "paramName": "最后报警信息ID",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.MaxMessageCount",
+     "paramName": "最大报警信息数",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.MessageCount",
+     "paramName": "报警信息数",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.MotWorkSpeed",
+     "paramName": "焊接速度",
+     "paramType": "float",
+     "paramUnit": "cm/min"
+    },
+    {
+     "paramCode": "HJ1.S0.MotorcurrentPS1",
+     "paramName": "送丝电流ps1",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "HJ1.S0.MotorcurrentPS2",
+     "paramName": "送丝电流ps2",
+     "paramType": "float",
+     "paramUnit": "A"
+    },
+    {
+     "paramCode": "HJ1.S0.MovTcp",
+     "paramName": "TCP位姿",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.Online",
+     "paramName": "在线",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.OpMode",
+     "paramName": "操作模式",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ParametersLoaded",
+     "paramName": "参数已加载",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ProgramNumberSP1",
+     "paramName": "专家库号sp1",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.ProgramNumberSP2",
+     "paramName": "专家库号sp2",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.Running",
+     "paramName": "PRG程序运行时间",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.StartTime",
+     "paramName": "开始采集日期",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.Stopped",
+     "paramName": "设备停止时间",
+     "paramType": "string",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.TOROCHActive",
+     "paramName": "工具已激活",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.TOROCHRunning",
+     "paramName": "正在焊接",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.TTDIGIIsRunning",
+     "paramName": "正在焊接",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "HJ1.S0.VoltagePS1",
+     "paramName": "焊接电压ps1",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "HJ1.S0.VoltagePS2",
+     "paramName": "焊接电压ps2",
+     "paramType": "float",
+     "paramUnit": "V"
+    },
+    {
+     "paramCode": "HJ1.S0.Waterflow",
+     "paramName": "水流量",
+     "paramType": "float",
+     "paramUnit": "m³/h"
+    },
+    {
+     "paramCode": "HJ1.S0.WirespeedPS1",
+     "paramName": "送丝速度sp1",
+     "paramType": "float",
+     "paramUnit": "cm/min"
+    },
+    {
+     "paramCode": "HJ1.S0.WirespeedPS2",
+     "paramName": "送丝速度sp2",
+     "paramType": "float",
+     "paramUnit": "cm/min"
+    },
+    {
+     "paramCode": "Device1.DBJZDHNJGSL1",
+     "paramName": "北侧激光回水口水流量",
+     "paramType": "float",
+     "paramUnit": "m³/h"
+    },
+    {
+     "paramCode": "Device2.DBJZDHNHJWD1",
+     "paramName": "北侧焊机回水口温度",
+     "paramType": "float",
+     "paramUnit": "℃"
+    },
+    {
+     "paramCode": "Device2.DBJZDHNHJWD2",
+     "paramName": "北侧焊机回水口温度2",
+     "paramType": "float",
+     "paramUnit": "℃"
+    },
+    {
+     "paramCode": "Device2.DBJZDHNJGWD1",
+     "paramName": "北侧激光回水口温度",
+     "paramType": "float",
+     "paramUnit": "℃"
+    },
+    {
+     "paramCode": "calculate.DBJZDHNJGSLL",
+     "paramName": "北侧激光回水口水流量计算点",
+     "paramType": "float",
+     "paramUnit": "L/min"
+    }
+   ]
+  },
+  {
+   "deviceCode": "dxdm",
+   "params": [
+    {
+     "paramCode": "大线打磨.DAxPLCDB4.A基准",
+     "paramName": "A基准",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "大线打磨.DAxPLCDB4.x基准",
+     "paramName": "x基准",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "大线打磨.DAxPLCDB4.z基准",
+     "paramName": "z基准",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "大线打磨.DAxPLCDB4.右工位到位",
+     "paramName": "右工位到位",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "大线打磨.DAxPLCDB4.工件到位",
+     "paramName": "工件到位",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "大线打磨.DAxPLCDB4.左工位到位",
+     "paramName": "左工位到位",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "大线打磨.DAxPLCDB4.打磨压力反馈",
+     "paramName": "打磨压力反馈",
+     "paramType": "float",
+     "paramUnit": "N"
+    },
+    {
+     "paramCode": "大线打磨.DAxPLCDB4.打磨速度",
+     "paramName": "打磨速度",
+     "paramType": "float",
+     "paramUnit": "mm/s"
+    },
+    {
+     "paramCode": "大线打磨.DAxPLCDB4.整墙开始",
+     "paramName": "整墙开始",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "大线打磨.DAxPLCDB4.整墙结束",
+     "paramName": "整墙结束",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "大线打磨.DAxPLCDB4.机器人EX姿态",
+     "paramName": "机器人EX姿态",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "大线打磨.DAxPLCDB4.机器人EY姿态",
+     "paramName": "机器人EY姿态",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "大线打磨.DAxPLCDB4.机器人EZ姿态",
+     "paramName": "机器人EZ姿态",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "大线打磨.DAxPLCDB4.机器人X姿态",
+     "paramName": "机器人X姿态",
+     "paramType": "float",
+     "paramUnit": "mm"
+    },
+    {
+     "paramCode": "大线打磨.DAxPLCDB4.机器人Y姿态",
+     "paramName": "机器人Y姿态",
+     "paramType": "float",
+     "paramUnit": "mm"
+    },
+    {
+     "paramCode": "大线打磨.DAxPLCDB4.机器人Z姿态",
+     "paramName": "机器人Z姿态",
+     "paramType": "float",
+     "paramUnit": "mm"
+    }
+   ]
+  },
+  {
+   "deviceCode": "ckdm1",
+   "params": [
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.单个窗口打磨时间",
+     "paramName": "单个窗口打磨时间",
+     "paramType": "float",
+     "paramUnit": "s"
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.工件到位",
+     "paramName": "工件到位",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1EX姿态",
+     "paramName": "机器人1EX姿态",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1EY姿态",
+     "paramName": "机器人1EY姿态",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1EZ姿态",
+     "paramName": "机器人1EZ姿态",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1X姿态",
+     "paramName": "机器人1X姿态",
+     "paramType": "float",
+     "paramUnit": "mm"
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1Y姿态",
+     "paramName": "机器人1Y姿态",
+     "paramType": "float",
+     "paramUnit": "mm"
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1Z姿态",
+     "paramName": "机器人1Z姿态",
+     "paramType": "float",
+     "paramUnit": "mm"
+    }
+   ]
+  },
+  {
+   "deviceCode": "ckdm2",
+   "params": [
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.单个窗口打磨时间",
+     "paramName": "单个窗口打磨时间",
+     "paramType": "float",
+     "paramUnit": "s"
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.工件到位",
+     "paramName": "工件到位",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1EX姿态",
+     "paramName": "机器人1EX姿态",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1EY姿态",
+     "paramName": "机器人1EY姿态",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1EZ姿态",
+     "paramName": "机器人1EZ姿态",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1X姿态",
+     "paramName": "机器人1X姿态",
+     "paramType": "float",
+     "paramUnit": "mm"
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1Y姿态",
+     "paramName": "机器人1Y姿态",
+     "paramType": "float",
+     "paramUnit": "mm"
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1Z姿态",
+     "paramName": "机器人1Z姿态",
+     "paramType": "float",
+     "paramUnit": "mm"
+    }
+   ]
+  },
+  {
+   "deviceCode": "ckdm3",
+   "params": [
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.单个窗口打磨时间",
+     "paramName": "单个窗口打磨时间",
+     "paramType": "float",
+     "paramUnit": "s"
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.工件到位",
+     "paramName": "工件到位",
+     "paramType": "boolean",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1EX姿态",
+     "paramName": "机器人1EX姿态",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1EY姿态",
+     "paramName": "机器人1EY姿态",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1EZ姿态",
+     "paramName": "机器人1EZ姿态",
+     "paramType": "float",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1X姿态",
+     "paramName": "机器人1X姿态",
+     "paramType": "float",
+     "paramUnit": "mm"
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1Y姿态",
+     "paramName": "机器人1Y姿态",
+     "paramType": "float",
+     "paramUnit": "mm"
+    },
+    {
+     "paramCode": "窗口打磨.ChuangkPLCDB17.机器人1Z姿态",
+     "paramName": "机器人1Z姿态",
+     "paramType": "float",
+     "paramUnit": "mm"
+    }
+   ]
+  },
+  {
+   "deviceCode": "000000100004060007",
+   "params": [
+    {
+     "paramCode": "ns=2;s=FOOKED60.calc.alarm_count",
+     "paramName": "报警数量",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "ns=2;s=FOOKED60.calc.alarm_times",
+     "paramName": "报警次数",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "ns=2;s=FOOKED60.spindle.speed",
+     "paramName": "主轴转速",
+     "paramType": "float",
+     "paramUnit": "rpm"
+    }
+   ]
+  },
+  {
+   "deviceCode": "000000100004060013",
+   "params": [
+    {
+     "paramCode": "ns=2;s=FOOKED60.calc.alarm_count",
+     "paramName": "报警数量",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "ns=2;s=FOOKED60.calc.alarm_times",
+     "paramName": "报警次数",
+     "paramType": "int",
+     "paramUnit": null
+    },
+    {
+     "paramCode": "ns=2;s=FOOKED60.spindle.speed",
+     "paramName": "主轴转速",
+     "paramType": "float",
+     "paramUnit": "rpm"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+  "_comment": "CV 协议验证剧本（最小样例，非五面侧墙正式集成测试剧本）。steps[].at 为相对启动的秒数；其余字段同 /_sim/cv/emit 的 spec。",
+  "scenarios": {
+    "default": {
+      "steps": [
+        {"at": 0, "event_type": "PERSON_COUNT", "camera_id": "CAM-20", "roi_id": "ROI_20_01_02"},
+        {"at": 2, "event_type": "WALL_FLIP", "camera_id": "CAM-20", "roi_id": "ROI_20_02_01", "wall_state": "vertical", "state_sequence": ["horizontal", "vertical"]},
+        {"at": 4, "event_type": "SOUNDPROOF_COVER_MOVE_COMPLETED", "camera_id": "CAM-21", "roi_id": "ROI_21_01_02"},
+        {"at": 6, "event_type": "LOADED_TRANSFER_VEHICLE_ENTER", "camera_id": "CAM-10", "roi_id": "ROI_10_01_01", "targets": []},
+        {"at": 8, "event_type": "PROFILE_LIFTED_FROM_TRANSFER_VEHICLE", "camera_id": "CAM-10", "roi_id": "ROI_10_01_01", "targets": []},
+        {"at": 10, "event_type": "EMPTY_TRANSFER_VEHICLE_LEAVE", "camera_id": "CAM-10", "roi_id": "ROI_10_01_01", "targets": []}
+      ]
+    },
+    "all-types": {
+      "steps": [
+        {"at": 0, "event_type": "ENTER", "camera_id": "CAM-20", "roi_id": "ROI_20_02_01"},
+        {"at": 1, "event_type": "LEAVE", "camera_id": "CAM-20", "roi_id": "ROI_20_02_01"},
+        {"at": 2, "event_type": "WALL_FLIP", "camera_id": "CAM-20", "roi_id": "ROI_20_02_01"},
+        {"at": 3, "event_type": "PERSON_COUNT", "camera_id": "CAM-20", "roi_id": "ROI_20_01_02"},
+        {"at": 4, "event_type": "SPARK", "camera_id": "CAM-20", "roi_id": "ROI_20_02_01"},
+        {"at": 5, "event_type": "TRANSFER_VEHICLE_EMPTY", "camera_id": "CAM-10", "roi_id": "ROI_10_02_01"},
+        {"at": 6, "event_type": "EMPTY_TRANSFER_VEHICLE_ENTER", "camera_id": "CAM-10", "roi_id": "ROI_10_02_01", "targets": []},
+        {"at": 7, "event_type": "EMPTY_TRANSFER_VEHICLE_LEAVE", "camera_id": "CAM-10", "roi_id": "ROI_10_01_01", "targets": []},
+        {"at": 8, "event_type": "LOADED_TRANSFER_VEHICLE_ENTER", "camera_id": "CAM-10", "roi_id": "ROI_10_01_01", "targets": []},
+        {"at": 9, "event_type": "LOADED_TRANSFER_VEHICLE_LEAVE", "camera_id": "CAM-10", "roi_id": "ROI_10_02_01", "targets": []},
+        {"at": 10, "event_type": "SIDEWALL_FINISHED_PRODUCT_ENTER_TRANSFER_VEHICLE", "camera_id": "CAM-10", "roi_id": "ROI_10_02_01", "targets": []},
+        {"at": 11, "event_type": "PROFILE_LIFTED_FROM_TRANSFER_VEHICLE", "camera_id": "CAM-10", "roi_id": "ROI_10_01_01", "targets": []},
+        {"at": 12, "event_type": "SOUNDPROOF_COVER_MOVE_COMPLETED", "camera_id": "CAM-21", "roi_id": "ROI_21_01_01"}
+      ]
+    }
+  }
+}

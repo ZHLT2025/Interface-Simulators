@@ -1,0 +1,10 @@
+# runtime secrets and state (never commit)
+.env
+iot/mosquitto/passwd
+state/
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+# scratch
+tmp/
