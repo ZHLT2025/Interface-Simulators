@@ -1,0 +1,35 @@
+# F03 / F04 定点核实记录（修改前，2026-10-27，宿主 185.189.48.12，部署版本 = main@28d3972 代码）
+# 以下为实际命令输出的原文摘录（时间为容器内 Asia/Shanghai 渲染值）。
+
+== F03-1: LATEST 历史 vs 最近一条 MQTT 消息（cqx11）==
+HJ1.S0.CurrentPS2 mqtt: 232.88961 2026-10-27 10:48:21 | history LATEST: ('232.88961', '2026-10-27 10:48:21') | consistent
+HJ1.S0.DrivesOn mqtt: 75852 2026-10-27 10:48:21 | history LATEST: ('75852', '2026-10-27 10:48:21') | consistent
+
+== F03-2: Broker 停机 8 秒实验（docker stop sim-mqtt → 观察 → docker start）==
+latest serverTime before: 2026-10-27 10:48:21
+publisher during outage (connected,failed,last_error): False 0 connect: [Errno -3] Temporary failure in name resolution
+latest serverTime during outage: 2026-10-27 10:48:21      <- 停机期间历史不前进（未采样、未发布）
+latest serverTime after recovery: 2026-10-27 10:48:38     <- 恢复后继续采样并发布
+after: True 17545 0 connect: [Errno -3] Temporary failure in name resolution   <- connected=True, failed=0（last_error 为停机期间残留）
+
+== F04-1: 5 个并发 scenario/run（default，6 步）==
+{"started":true,"name":"default","steps":6}
+{"detail":"scenario already running; stop it first"} ×4
+status: {'name': 'default', 'running': False, 'steps': 6, 'position': 6} results: 6
+sink events received in window: 6
+
+== F04-2: 20 个同时（Barrier 同步）scenario/run ==
+20 simultaneous run requests -> started: 1 rejected(409): 19
+status: {'running': False, 'position': 6} results: 6
+events delivered to sink: 6 (6 = single run; multiples of 6 = parallel runs)
+结论：并行多剧本未复现（竞争窗口仅存在于 start() 与线程设置 running=True 之间，极窄）。
+
+== F04-3: run → stop → 立即 run（缺陷复现）==
+{"started":true,"name":"all-types","steps":13}
+{"stopping":true,"status":{"name":"all-types","running":true          <- stop 立即返回，线程仍在运行
+{"detail":"scenario already running; stop it first"}                   <- 紧接着的 run 被 409 拒绝  ← 缺陷
+{"name":"all-types","running":false,"steps":13,"position":2,...}       <- 0.3s 后线程才退出
+结论：成立。stop 不等待线程退出，且发送重试退避不可中断，导致"停止后再次启动"结果不正确。
+
+== 修复后验证 == 见 conformance-last-run.txt 中 tests/conformance/test_hardening.py 的
+test_scenario_stop_then_immediate_restart 与 test_scenario_single_instance_under_concurrent_starts（均 PASSED）。

@@ -56,7 +56,8 @@ class Pusher:
             return "server_error"
         return "unexpected"
 
-    def send(self, event: dict, target_url: str | None = None, auth: tuple | None = None) -> dict:
+    def send(self, event: dict, target_url: str | None = None, auth: tuple | None = None, stop_event=None) -> dict:
+        """stop_event (threading.Event): when set, pending retries/backoff are abandoned (scenario stop)."""
         url = target_url or self.target_url
         auth = auth or self._auth()
         attempts = []
@@ -84,9 +85,17 @@ class Pusher:
                 outcome = kind
                 break
             if attempt <= self.max_retries:
+                if stop_event is not None and stop_event.is_set():
+                    outcome = "aborted"
+                    break
                 with self.lock:
                     self.stats["retries"] += 1
-                time.sleep(self.backoff_s * attempt)
+                if stop_event is not None:
+                    if stop_event.wait(self.backoff_s * attempt):
+                        outcome = "aborted"
+                        break
+                else:
+                    time.sleep(self.backoff_s * attempt)
             else:
                 outcome = kind
         with self.lock:

@@ -7,4 +7,4 @@ cd "$ROOT"
 mkdir -p docs/evidence
 docker run --rm --env-file .env -e SIM_HOST="${SIM_HOST:-185.189.48.12}" \
   -v "$ROOT/tests:/app/tests:ro" -v "$ROOT/docs/evidence:/evidence" -w /app \
-  interface-simulators:local sh -c "pip install -q pytest==8.3.4 >/dev/null 2>&1; python -m pytest tests/conformance -v --tb=short -p no:cacheprovider $* 2>&1 | tee /evidence/conformance-last-run.txt"
+  interface-simulators:local sh -c "pip install -q pytest==8.3.4 >/dev/null 2>&1; python -m pytest tests/unit tests/conformance -v --tb=short -p no:cacheprovider $* 2>&1 | tee /evidence/conformance-last-run.txt"

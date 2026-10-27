@@ -1,0 +1,19 @@
+# F02 external probes via check-host.net (format per node: [ok, time, status_text, http_code, ip])
+# captured 2026-10-27T02:55:41Z
+== admin-denied-expected-403  GET http://185.189.48.12:18001/_sim/status ==
+{"es1.node.check-host.net":[[0,0.10094690322876,"Forbidden","403","185.189.48.12"]],"nl2.node.check-host.net":[[0,0.0467331409454346,"Forbidden","403","185.189.48.12"]],"si1.node.check-host.net":[[0,0.116107940673828,"Forbidden","403","185.189.48.12"]]}
+== admin-denied-expected-403  GET http://185.189.48.12:18004/_sim/cv/status ==
+{"es2.node.check-host.net":[[0,0.0840191841125488,"Forbidden","403","185.189.48.12"]],"il2.node.check-host.net":[[0,0.172770977020264,"Forbidden","403","185.189.48.12"]],"pl2.node.check-host.net":[[0,0.0465657711029053,"Forbidden","403","185.189.48.12"]]}
+== public-health-expected-200  GET http://185.189.48.12:18002/_sim/health ==
+{"de4.node.check-host.net":[[1,0.0437910556793213,"OK","200","185.189.48.12"]],"ru1.node.check-host.net":[[1,0.0749490261077881,"OK","200","185.189.48.12"]],"si1.node.check-host.net":[[1,0.109884023666382,"OK","200","185.189.48.12"]]}
+== contract-root-expected-200  GET http://185.189.48.12:18003/ ==
+{"il1.node.check-host.net":[[1,0.161216020584106,"OK","200","185.189.48.12"]],"kz1.node.check-host.net":[[1,0.191017150878906,"OK","200","185.189.48.12"]],"ru3.node.check-host.net":[[1,0.0931169986724854,"OK","200","185.189.48.12"]]}
+== evidence-path-exempt-expected-404  GET http://185.189.48.12:18004/_sim/cv/evidence/none/frame_001.jpg ==
+{"sg1.node.check-host.net":[[0,0.335140943527222,"Not Found","404","185.189.48.12"]],"tr1.node.check-host.net":[[0,0.125918865203857,"Not Found","404","185.189.48.12"]],"tr2.node.check-host.net":[[0,0.125428915023804,"Not Found","404","185.189.48.12"]]}
+== container-side denial log (sim-mom / sim-cv) ==
+2026-10-27 02:55:25,016 WARNING sim.ipguard denied GET /_sim/status from 195.211.27.85: admin endpoint not allowed from this address
+2026-10-27 02:55:25,085 WARNING sim.ipguard denied GET /_sim/status from 78.40.111.151: admin endpoint not allowed from this address
+2026-10-27 02:55:25,101 WARNING sim.ipguard denied GET /_sim/status from 83.143.119.103: admin endpoint not allowed from this address
+2026-10-27 02:55:25,435 WARNING sim.ipguard denied GET /_sim/cv/status from 195.137.244.1: admin endpoint not allowed from this address
+2026-10-27 02:55:25,482 WARNING sim.ipguard denied GET /_sim/cv/status from 194.26.100.165: admin endpoint not allowed from this address
+2026-10-27 02:55:25,619 WARNING sim.ipguard denied GET /_sim/cv/status from 195.211.24.52: admin endpoint not allowed from this address

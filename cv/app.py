@@ -38,6 +38,27 @@ S = ctx.settings
 
 # producer configuration
 TARGET_URL = env("CV_TARGET_URL", "http://127.0.0.1:8000/api/v1/cv-events")
+# F02: hosts that per-request target_url overrides may point to (prevents using the admin API as an open relay).
+# Default = configured target host + loopback + this simulator's public host. Comma-separated hostnames/IPs.
+from urllib.parse import urlparse as _urlparse  # noqa: E402
+
+def _default_target_hosts() -> set[str]:
+    hosts = {"127.0.0.1", "localhost"}
+    for u in (TARGET_URL, env("CV_PUBLIC_BASE_URL", "")):
+        h = _urlparse(u).hostname if u else None
+        if h:
+            hosts.add(h)
+    return hosts
+
+TARGET_ALLOW_HOSTS = _default_target_hosts() | {h.strip() for h in (env("CV_TARGET_ALLOW_HOSTS", "") or "").split(",") if h.strip()}
+
+
+def _check_target(url: str | None):
+    if url is None:
+        return
+    host = _urlparse(url).hostname
+    if _urlparse(url).scheme not in ("http", "https") or host is None or host not in TARGET_ALLOW_HOSTS:
+        raise HTTPException(status_code=400, detail=f"target_url host not allowed; permitted hosts: {sorted(TARGET_ALLOW_HOSTS)} (extend with CV_TARGET_ALLOW_HOSTS)")
 TARGET_USER = env("CV_TARGET_BASIC_USER")
 TARGET_PASS = env("CV_TARGET_BASIC_PASS")
 EVIDENCE_URI_TEMPLATE = env("CV_EVIDENCE_URI_TEMPLATE", "oss://cv-evidence/{date}/{camera_id}/{event_id}/frame_001.jpg")
@@ -151,6 +172,7 @@ def cv_status(request: Request):
 def cv_emit(request: Request, spec: dict):
     """Build one contract-conformant event from a short spec and send it. Returns event + delivery record."""
     _admin_guard(request)
+    _check_target(spec.get("target_url"))
     ev = make_event(spec)
     result = pusher.send(ev, spec.get("target_url"), _auth_override(spec))
     return {"event": ev, "delivery": result}
@@ -163,6 +185,7 @@ def cv_emit_raw(request: Request, body: dict):
     payload = body.get("payload")
     if not isinstance(payload, dict):
         raise HTTPException(status_code=400, detail="payload (object) required")
+    _check_target(body.get("target_url"))
     return {"delivery": pusher.send(payload, body.get("target_url"), _auth_override(body)), "validation": validate_event(payload)}
 
 
@@ -194,7 +217,8 @@ class Scenario(threading.Thread):
         self.name = None
 
     def run(self):
-        self.running = True
+        # self.running is set to True by scenario_run() under scenario_lock *before* start(), so the
+        # "already running" check can never see a started-but-not-yet-running thread (F04).
         started = time.monotonic()
         try:
             while not self.stop_event.is_set():
@@ -208,7 +232,7 @@ class Scenario(threading.Thread):
                     break
                 try:
                     ev = make_event(step)
-                    res = pusher.send(ev, step.get("target_url"), _auth_override(step))
+                    res = pusher.send(ev, step.get("target_url"), _auth_override(step), stop_event=self.stop_event)
                     self.results.append({"step": self.pos, "event_id": ev["event_id"], "outcome": res["outcome"]})
                 except HTTPException as e:
                     self.results.append({"step": self.pos, "error": e.detail})
@@ -221,6 +245,8 @@ class Scenario(threading.Thread):
 
 
 scenario = Scenario()
+scenario_lock = threading.Lock()  # F04: serialises start/stop; exactly one scenario thread may exist
+STOP_JOIN_TIMEOUT_S = env_float("CV_SCENARIO_STOP_TIMEOUT_SECONDS", 15.0)
 
 
 @app.post("/_sim/cv/scenario/run")
@@ -229,8 +255,6 @@ def scenario_run(request: Request, body: dict | None = None):
     global scenario
     _admin_guard(request)
     body = body or {}
-    if scenario.running:
-        raise HTTPException(status_code=409, detail="scenario already running; stop it first")
     if "steps" in body:
         steps, name = body["steps"], body.get("name", "inline")
     else:
@@ -239,17 +263,30 @@ def scenario_run(request: Request, body: dict | None = None):
         if scen is None:
             raise HTTPException(status_code=404, detail=f"scenario {name!r} not found in dataset")
         steps = scen.get("steps", [])
-    scenario = Scenario()
-    scenario.steps, scenario.loop, scenario.name = steps, bool(body.get("loop", False)), name
-    scenario.start()
+    for st in steps:
+        _check_target(st.get("target_url"))
+    with scenario_lock:
+        if scenario.running or scenario.is_alive():
+            raise HTTPException(status_code=409, detail="scenario already running; stop it first")
+        new = Scenario()
+        new.steps, new.loop, new.name = steps, bool(body.get("loop", False)), name
+        new.running = True  # claimed before the thread starts (closes the check-then-start window)
+        scenario = new
+        new.start()
     return {"started": True, "name": name, "steps": len(steps)}
 
 
 @app.post("/_sim/cv/scenario/stop")
 def scenario_stop(request: Request):
+    """Stop the running scenario and wait (bounded) until its thread has exited, so a following
+    /scenario/run starts immediately instead of being refused with 409."""
     _admin_guard(request)
-    scenario.stop_event.set()
-    return {"stopping": True, "status": scenario.status()}
+    with scenario_lock:
+        cur = scenario
+        cur.stop_event.set()
+    if cur.ident is not None:  # the initial placeholder Scenario() was never started and cannot be joined
+        cur.join(STOP_JOIN_TIMEOUT_S)
+    return {"stopped": not cur.is_alive(), "status": cur.status()}
 
 
 @app.get("/_sim/cv/scenario/status")

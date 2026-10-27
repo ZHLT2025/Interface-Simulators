@@ -7,6 +7,7 @@ from fastapi import FastAPI
 from .admin import build_admin_router
 from .config import SimSettings
 from .datasets import DatasetManager
+from .ipguard import IpGuardMiddleware
 from .reqlog import RequestLog, RequestLogMiddleware
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
@@ -19,6 +20,8 @@ class SimContext:
         self.reqlog = RequestLog(self.settings.request_log_size)
         self.app = FastAPI(title=title, docs_url=None, redoc_url=None, openapi_url=None)
         self.app.add_middleware(RequestLogMiddleware, reqlog=self.reqlog)
+        # added last => outermost: denied requests never reach the request log or the handlers
+        self.app.add_middleware(IpGuardMiddleware, admin_cidrs=self.settings.admin_allow_cidrs, client_cidrs=self.settings.client_allow_cidrs)
 
     def mount_admin(self, extra_status=None, on_dataset_change=None):
         self.app.include_router(build_admin_router(self.settings, self.dsm, self.reqlog, extra_status, on_dataset_change))

@@ -38,6 +38,7 @@ def build_admin_router(settings: SimSettings, dsm: DatasetManager, reqlog: Reque
             "dataset_files": dsm.dataset.files(),
             "datasets_available": dsm.available(),
             "requests_seen": reqlog.counter,
+            "access_control": {"admin_allow_cidrs": settings.admin_allow_cidrs, "client_allow_cidrs": settings.client_allow_cidrs or "(open)"},
         }
         if extra_status:
             body.update(extra_status())

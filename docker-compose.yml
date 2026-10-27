@@ -39,7 +39,7 @@ services:
   mom:
     <<: *sim-common
     container_name: sim-mom
-    command: ["uvicorn", "mom.app:app", "--host", "0.0.0.0", "--port", "8000", "--proxy-headers", "--forwarded-allow-ips", "*"]
+    command: ["uvicorn", "mom.app:app", "--host", "0.0.0.0", "--port", "8000"]
     ports:
       - "0.0.0.0:18001:8000"
     healthcheck:

@@ -46,6 +46,9 @@ class SimSettings:
         self.public_base_url = env(f"{sim.upper()}_PUBLIC_BASE_URL", "")
         self.request_log_size = env_int("SIM_REQUEST_LOG_SIZE", 500)
         self.timezone = env("SIM_TIMEZONE", "Asia/Shanghai")
+        # F02: source-IP allow-lists (see simcore/ipguard.py)
+        self.admin_allow_cidrs = env("SIM_ADMIN_ALLOW_CIDRS", "127.0.0.0/8,::1/128,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16")
+        self.client_allow_cidrs = env("SIM_CLIENT_ALLOW_CIDRS", "")
 
     @property
     def dataset_dir(self) -> Path:
