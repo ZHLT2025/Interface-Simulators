@@ -42,4 +42,4 @@ tests/conformance/test_mom.py::test_002_success_shape PASSED             [ 94%]
 tests/conformance/test_mom.py::test_002_identity_matches_request PASSED  [ 97%]
 tests/conformance/test_mom.py::test_002_not_found_and_errors PASSED      [100%]
 
-============================= 37 passed in 41.50s ==============================
+============================= 37 passed in 37.44s ==============================
