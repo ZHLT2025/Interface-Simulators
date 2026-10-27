@@ -2,6 +2,8 @@
 
 高铁动车侧墙生产数字化项目第一阶段交付：四类外部生产系统接口的可运行模拟器，部署于 `185.189.48.12`。
 
+工程目录：`/root/project/portal-20261022/interface-simulators/`（2026-10-27 起并入 portal-20261022 VS Code 工作区，与四个业务仓库并列）；任务卡原路径 `/root/project/interface-simulators/` 保留为指向该目录的符号链接。
+
 | 目录 | 内容 |
 | --- | --- |
 | `mom/` | IF-MOM-001 获取订单列表、IF-MOM-002 请求订单下发（HTTP/JSON，Basic Auth） |
