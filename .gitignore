@@ -8,3 +8,8 @@ __pycache__/
 .pytest_cache/
 # scratch
 tmp/
+# 新五墙实例（U01 V1.2 D-7 第 4 步）：凭据、运行状态与正式测试输入数据一律不入提交
+deploy/5w/.env.5w
+deploy/5w/secrets/
+state-5w/
+data-5w/

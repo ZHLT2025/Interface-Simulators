@@ -1,0 +1,76 @@
+# 新五墙 A/B 集成测试环境 — interface-simulators 叠层（U01 V1.2 D-7 第 4 步）
+#
+# 用法（务必带 -p 与两个 -f，见 deploy/5w/compose-5w.sh）：
+#   docker compose -p interface-simulators-5w \
+#     -f docker-compose.yml -f deploy/5w/compose.5w.override.yaml \
+#     --env-file deploy/5w/.env.5w <命令>
+#
+# 边界（Owner 2026-10-30_05 §二.1/§三.4，10c 第 4 步白名单）：
+#   * 只新建 5 个长驻容器 sim5w-{mom,iot,esb,cv,mqtt}、网络 interface-simulators-5w-net、
+#     状态目录 ./state-5w、宿主端口 185.189.48.12:18011-18014 + 127.0.0.1:18831 + 127.0.0.1:18024。
+#   * 绝不触碰旧项目 interface-simulators（sim-* 容器、18001-18004/18830、interface-simulators-net）。
+#   * `!override` / `!reset` 是必需的：compose 对 ports/volumes/env_file 默认是「追加」语义，
+#     不覆盖就会把旧端口 18001-18004/18830 一并发布，与运行中的旧实例冲突。
+#   * 镜像固定为已构建并自测通过的 interface-simulators-5w:b2c8d70（E02_SIM），
+#     `build: !reset null` + `pull_policy: never` 保证 up 既不重建 :local 也不联网拉取。
+name: interface-simulators-5w
+
+x-sim5w-common: &sim5w-common
+  image: interface-simulators-5w:b2c8d70
+  pull_policy: never
+  env_file: !override
+    - deploy/5w/.env.5w
+  volumes: !override
+    # 单副本单卷：/_ctl 运行锁与 A/B 状态只在这一个卷上（E02_SIM §7.8）
+    - ./state-5w:/state
+    # 正式五墙测试输入数据（V1.1/T04），只读挂载，容器内绝不可写
+    - ./data-5w/sims:/data-5w:ro
+
+services:
+  mqtt:
+    container_name: sim5w-mqtt
+    # O05（MQTT 变化流）未准入：仅回环发布，不对公网开放
+    ports: !override
+      - "127.0.0.1:18831:1883"
+    env_file: !override
+      - deploy/5w/.env.5w
+    volumes: !override
+      - ./iot/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - ./iot/mosquitto/acl:/mosquitto/config/acl:ro
+      - ./deploy/5w/secrets/mosquitto-passwd:/mosquitto/config/passwd:ro
+
+  mom:
+    <<: *sim5w-common
+    container_name: sim5w-mom
+    build: !reset null
+    ports: !override
+      - "185.189.48.12:18011:8000"
+
+  iot:
+    <<: *sim5w-common
+    container_name: sim5w-iot
+    build: !reset null
+    ports: !override
+      - "185.189.48.12:18012:8000"
+
+  esb:
+    <<: *sim5w-common
+    container_name: sim5w-esb
+    build: !reset null
+    ports: !override
+      - "185.189.48.12:18013:8000"
+
+  cv:
+    <<: *sim5w-common
+    container_name: sim5w-cv
+    build: !reset null
+    ports: !override
+      # 合同口（公网，IF-CV-001 与 /_sim/health）
+      - "185.189.48.12:18014:8000"
+      # /_ctl 受控本地入口：只绑回环，测试人员经 SSH 隧道访问（Owner §二.5）
+      - "127.0.0.1:18024:8000"
+
+networks:
+  simnet:
+    name: interface-simulators-5w-net
+    driver: bridge
