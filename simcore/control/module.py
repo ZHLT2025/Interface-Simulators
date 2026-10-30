@@ -315,19 +315,23 @@ class Runner(threading.Thread):
         # has a determinate recorded result, so 停止处理中 resolves immediately to 已停止.
         pending = [u for u in (self.store.get().get("unknown_pending") or [])]
         self.m.runner_finished(self)
+        final = M.ABORTED if pending else M.STOPPED
+        # the audit entry is written *before* the terminal state, so the log is already complete
+        # the moment a human sees 已停止 / 异常停止
+        self.m.audit.write(event="round_stopped", mode=self.mode, run_id=self.run_id, attempted=index, state=final)
 
         def done(st):
-            st["state"] = M.ABORTED if pending else M.STOPPED
+            st["state"] = final
             st["run_finished_at"] = utc_now()
             st["stop_point"] = None
             st["requires_manual_review"] = bool(pending)
 
         self.store.mutate(done)
-        self.m.audit.write(event="round_stopped", mode=self.mode, run_id=self.run_id, attempted=index, state=self.store.get()["state"])
         return self.STOPPED
 
     def _finish_aborted(self, error: dict, latch: dict | None = None) -> None:
         self.m.runner_finished(self)
+        self.m.audit.write(event="round_aborted", mode=self.mode, run_id=self.run_id, error=error.get("code"), reason=error.get("reason"))
 
         def apply(st):
             st["state"] = M.ABORTED
@@ -342,7 +346,6 @@ class Runner(threading.Thread):
                 ]
 
         self.store.mutate(apply)
-        self.m.audit.write(event="round_aborted", mode=self.mode, run_id=self.run_id, error=error.get("code"), reason=error.get("reason"))
 
     def _finish_completed(self) -> None:
         self.m.runner_finished(self)
@@ -371,13 +374,6 @@ class Runner(threading.Thread):
             )
             return
 
-        def apply(s):
-            s["state"] = M.COMPLETED
-            s["run_finished_at"] = utc_now()
-            s["completed_with_known_rejections"] = counts["known_rejected"] > 0
-            s["stop_point"] = None
-
-        self.store.mutate(apply)
         self.m.audit.write(
             event="send_plan_completed",
             mode=self.mode,
@@ -386,6 +382,14 @@ class Runner(threading.Thread):
             known_rejected=counts["known_rejected"],
             confirmed_stop_points=confirmed,
         )
+
+        def apply(s):
+            s["state"] = M.COMPLETED
+            s["run_finished_at"] = utc_now()
+            s["completed_with_known_rejections"] = counts["known_rejected"] > 0
+            s["stop_point"] = None
+
+        self.store.mutate(apply)
 
 
 # ===================================================================== module
