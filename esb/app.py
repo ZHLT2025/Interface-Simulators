@@ -7,11 +7,15 @@ XML is parsed by namespace URI + local-name (never by prefix), as the definition
 from __future__ import annotations
 
 import json
+import mimetypes
 import xml.etree.ElementTree as ET
+from pathlib import Path
 from xml.sax.saxutils import escape
 
 from fastapi import Request
 from fastapi.responses import JSONResponse, Response
+from fastapi.staticfiles import StaticFiles
+from starlette.types import Scope
 
 from simcore.app_factory import SimContext
 from simcore.auth import check_basic
@@ -200,6 +204,80 @@ async def windchill_general(request: Request):
     return _wc_response("S", url)
 
 
+# ---------------------------------------------------------------- 文档文件服务（IS-05 交接件的最小等价实现）
+# IF-WINDCHILL-001 只返回下载链接；链接必须真的能取到文件，否则 ESB 文档查阅用例无法进行。
+# 剧本包把这件事交给「技术人员已有的测试服务器」：
+#   esb/04_simulator/file_service/configure_download_base.py  改写链接基址
+#   esb/04_simulator/file_service/nginx-esb-docs.conf.example 给出 location 配置
+# 本挂载就是那份 nginx 配置的最小等价实现，放在 ESB 模拟器进程内，**不新增容器也不新增宿主端口**。
+#
+# 边界（与交接配置逐条对齐）：
+#   * 只读：StaticFiles 只响应 GET/HEAD，其它方法 405；路径穿越由 Starlette 拦截。
+#   * 只服务被显式挂载的样例目录；不服务工程源码、凭据、数据集或包内其它目录。
+#   * 响应头与交接配置一致：Content-Disposition: attachment / Cache-Control: no-store /
+#     X-Content-Type-Options: nosniff（浏览器下载而不是内联渲染）。
+#   * 目录索引关闭（html=False 且无 index.html => 目录请求 404）。
+#
+# 预期行为（production/simulator_inputs/../expected_responses/independent_expectations.json）：
+#   /esb-doc-test/healthy/<8 份有效样例>                   -> 200
+#   /esb-doc-test/negative/ESBTEST_NEGATIVE_TRUNCATED.pdf  -> 200（INJECTED_UNREADABLE：能下载、打不开，
+#        expected_file 指向该样例）。按交接配置的告诫，它放在**独立子树**，由独立环境变量单独开关，
+#        不与 /healthy/ 混放；不需要时不设该变量即 404。
+#   /esb-doc-test/missing/ESBTEST_NOT_DEPLOYED.docx        -> 404（INJECTED_404：package_file=null，
+#        有意不部署，任何时候都不得在此放文件）
+#
+# 访问控制：该前缀是测试人员浏览器要取的「合同类」路径，受 SIM_CLIENT_ALLOW_CIDRS 约束
+# （默认空=开放），不在 SIM_ADMIN_ALLOW_CIDRS 的管理面内。
+DOC_URL_PREFIX = (env("ESB_DOC_URL_PREFIX", "/esb-doc-test") or "/esb-doc-test").rstrip("/") or "/esb-doc-test"
+DOC_FILES_DIR = env("ESB_DOC_FILES_DIR")                    # 空 => 完全不挂载，所有文档路径 404
+DOC_FILES_NEGATIVE_DIR = env("ESB_DOC_FILES_NEGATIVE_DIR")  # 空 => 负例子树不挂载
+
+# 办公文档类型在 python 默认表里缺失，按交接的 nginx types 块显式登记
+mimetypes.add_type("application/vnd.openxmlformats-officedocument.wordprocessingml.document", ".docx")
+mimetypes.add_type("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", ".xlsx")
+
+
+class _DocFiles(StaticFiles):
+    """只读静态文件服务；响应头与 nginx-esb-docs.conf.example 一致。"""
+
+    async def get_response(self, path: str, scope: Scope) -> Response:
+        resp = await super().get_response(path, scope)
+        resp.headers["Content-Disposition"] = "attachment"
+        resp.headers["Cache-Control"] = "no-store"
+        resp.headers["X-Content-Type-Options"] = "nosniff"
+        return resp
+
+
+def _mount_doc_files() -> dict:
+    """挂载文档样例目录；返回可在 /_sim/status 里如实报告的状态（配置错误不让进程崩）。"""
+    state: dict = {"url_prefix": DOC_URL_PREFIX, "read_only": True, "methods": ["GET", "HEAD"], "directory_index": False}
+    # 负例子树先注册：Starlette 按注册顺序匹配，更具体的前缀必须在前面
+    for key, prefix, raw in (
+        ("negative_subtree", DOC_URL_PREFIX + "/negative", DOC_FILES_NEGATIVE_DIR),
+        ("root", DOC_URL_PREFIX, DOC_FILES_DIR),
+    ):
+        if not raw:
+            state[key] = {"configured": False, "served": False, "reason": "环境变量未设置"}
+            continue
+        d = Path(raw)
+        if not d.is_dir():
+            state[key] = {"configured": True, "served": False, "directory": str(d), "reason": "目录不存在或未挂载"}
+            continue
+        app.mount(prefix, _DocFiles(directory=str(d), check_dir=False), name="esb-docs-" + key)
+        state[key] = {
+            "configured": True,
+            "served": True,
+            "directory": str(d),
+            "mounted_at": prefix,
+            "files": sorted(p.relative_to(d).as_posix() for p in d.rglob("*") if p.is_file()),
+        }
+    state["served"] = bool(state["root"].get("served") or state["negative_subtree"].get("served"))
+    return state
+
+
+DOC_FILE_SERVICE = _mount_doc_files()
+
+
 @app.get("/")
 def index():
     return {
@@ -209,6 +287,7 @@ def index():
             "IF-WINDCHILL-001": "POST /ESB/WINDCHILL/WINDCHILL_GeneralInterface  (SOAP 1.1, text/xml, CDATA JSON)",
         },
         "auth": "HTTP Basic",
+        "doc_files": f"GET {DOC_URL_PREFIX}/<相对路径>  (只读文档样例下载；无鉴权，按 IF-WINDCHILL-001 返回的链接取用)",
         "admin": "/_sim/health, /_sim/status, /_sim/requests, /_sim/reload, /_sim/dataset",
     }
 
@@ -218,5 +297,6 @@ ctx.mount_admin(
         "policies": {"unknown_material": UNKNOWN_MATERIAL, "strict_namespace": STRICT_NAMESPACE, "require_soapaction": REQUIRE_SOAPACTION},
         "materials": len(_sap_docs()),
         "documents": len(_wc_docs()),
+        "doc_file_service": DOC_FILE_SERVICE,
     }
 )

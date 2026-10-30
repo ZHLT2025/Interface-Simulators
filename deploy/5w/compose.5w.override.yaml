@@ -16,7 +16,9 @@
 name: interface-simulators-5w
 
 x-sim5w-common: &sim5w-common
-  image: interface-simulators-5w:b2c8d70
+  # 镜像标签 = 构建该镜像时的工作树 HEAD 短 sha，实际值在 deploy/5w/.env.5w 的 SIM5W_IMAGE_TAG，
+  # 由 compose-5w.sh 校验必须存在（`:?` 保证绝不会静默跑错镜像）。当前值见 deploy/5w/README.md。
+  image: interface-simulators-5w:${SIM5W_IMAGE_TAG:?SIM5W_IMAGE_TAG 必须在 deploy/5w/.env.5w 中设为镜像标签}
   pull_policy: never
   env_file: !override
     - deploy/5w/.env.5w
@@ -59,6 +61,14 @@ services:
     build: !reset null
     ports: !override
       - "185.189.48.12:18013:8000"
+    # ESB 另挂文档样例目录（IS-05）：IF-WINDCHILL-001 返回的下载链接要真的能取到文件。
+    # 两个目录都是只读；`missing/` 有意不存在 => 该路径 404（INJECTED_404）。
+    # 负例（截断 PDF，INJECTED_UNREADABLE）单独一个子树，由 ESB_DOC_FILES_NEGATIVE_DIR 单独开关。
+    volumes: !override
+      - ./state-5w:/state
+      - ./data-5w/sims:/data-5w:ro
+      - ./data-5w/esb-doc-files:/esb-doc-files:ro
+      - ./data-5w/esb-doc-files-negative:/esb-doc-files-negative:ro
 
   cv:
     <<: *sim5w-common

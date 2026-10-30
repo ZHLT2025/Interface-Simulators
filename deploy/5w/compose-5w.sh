@@ -33,6 +33,18 @@ done
 [[ -f "$ROOT/deploy/5w/secrets/mosquitto-passwd" ]] || {
   echo "REFUSED: 缺少 deploy/5w/secrets/mosquitto-passwd（见 README.md 第 3 步）。" >&2; exit 2; }
 
+# ---- 镜像标签守卫（绝不静默跑错镜像）--------------------------------------
+tag="$(sed -n 's/^SIM5W_IMAGE_TAG=//p' "$ROOT/$ENV_FILE" | tail -1)"
+if [[ -z "$tag" ]]; then
+  echo "REFUSED: deploy/5w/.env.5w 未设 SIM5W_IMAGE_TAG（应为构建该镜像时的工作树 HEAD 短 sha）。" >&2
+  exit 2
+fi
+if ! docker image inspect "interface-simulators-5w:$tag" >/dev/null 2>&1; then
+  echo "REFUSED: 本机没有镜像 interface-simulators-5w:$tag；先构建：" >&2
+  echo "         docker build -t interface-simulators-5w:\$(git -C $ROOT rev-parse --short HEAD) $ROOT" >&2
+  exit 2
+fi
+
 # ---- 危险参数守卫 --------------------------------------------------------
 # down -v 会删除本项目卷；本栈只有绑定挂载，-v 只在「本步回退」时由人工显式确认后使用。
 if [[ "${1:-}" == "down" ]]; then
