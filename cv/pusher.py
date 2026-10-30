@@ -4,6 +4,15 @@
   401                                    -> record auth error, do NOT retry with same credentials
   422                                    -> record field errors, do NOT retry
   500 / no HTTP response                 -> keep event_id, retry with backoff
+
+`send()` is the original ad-hoc/scenario path (truncating record, optional retries).
+
+`send_once()` (IS-07) is what the manual single-round controller uses: exactly one attempt, never a
+retry, and the *complete* actual response is kept — status code, response headers, the full body
+(up to CV_RESPONSE_CAPTURE_BYTES, with an explicit truncation flag that makes the result
+"incomplete" rather than silently shortened), elapsed time, the target identifier and the attempt
+instant. Classification is deliberately NOT done here: simcore.control.outcome decides, so that a
+bare status code can never be enough to continue a round.
 """
 from __future__ import annotations
 
@@ -16,9 +25,15 @@ from datetime import datetime, timezone
 
 import httpx
 
+from simcore.config import env_int
 from simcore.timeutil import iso_utc_ms
 
 log = logging.getLogger("cv.pusher")
+
+#: full-body capture limit for send_once(); a longer body is flagged and treated as incomplete
+RESPONSE_CAPTURE_BYTES = env_int("CV_RESPONSE_CAPTURE_BYTES", 65536)
+#: response headers that are never written to the technical log
+REDACT_HEADERS = ("set-cookie", "authorization", "proxy-authorization")
 
 
 class Pusher:
@@ -115,6 +130,62 @@ class Pusher:
         self.recent.append(summary)
         log.info(json.dumps({k: summary[k] for k in ("event_id", "event_type", "outcome", "elapsed_ms")}, ensure_ascii=False))
         return summary
+
+    def send_once(self, event: dict, target_url: str | None = None, auth: tuple | None = None) -> dict:
+        """One attempt, no retry, complete response capture. Never classifies, never resends."""
+        url = target_url or self.target_url
+        auth = auth if auth is not None else self._auth()
+        if isinstance(event, dict):
+            event["sent_at"] = iso_utc_ms()  # 24.2.1: 报文发送时间
+        rec = {
+            "target": url,
+            "event_id": event.get("event_id") if isinstance(event, dict) else None,
+            "event_type": event.get("event_type") if isinstance(event, dict) else None,
+            "sent_at": event.get("sent_at") if isinstance(event, dict) else None,
+            "attempt_at": datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z"),
+            "attempts": 1,
+            "max_retries_used": 0,
+            "auth": bool(auth),
+            "http_status": None,
+            "response_reason": None,
+            "response_headers": None,
+            "response_body": None,
+            "body_bytes": None,
+            "body_truncated": False,
+            "response_complete": False,
+            "transport_error": None,
+            "transport_kind": None,
+        }
+        t0 = time.monotonic()
+        try:
+            with httpx.Client(timeout=self.timeout_s, verify=self.tls_verify) as c:
+                r = c.post(url, json=event, auth=auth, headers={"Content-Type": "application/json"})
+            body = r.text
+            raw = len(body.encode("utf-8", "replace"))
+            truncated = raw > RESPONSE_CAPTURE_BYTES
+            rec.update(
+                http_status=r.status_code,
+                response_reason=getattr(r, "reason_phrase", None),
+                response_headers={k: ("***" if k.lower() in REDACT_HEADERS else v) for k, v in r.headers.items()},
+                response_body=body if not truncated else body[:RESPONSE_CAPTURE_BYTES],
+                body_bytes=raw,
+                body_truncated=truncated,
+                response_complete=not truncated,
+            )
+        except httpx.TimeoutException as e:
+            rec.update(transport_error=f"{type(e).__name__}: {e}", transport_kind="timeout")
+        except httpx.HTTPError as e:
+            rec.update(transport_error=f"{type(e).__name__}: {e}", transport_kind="http_error")
+        except Exception as e:  # socket/TLS/anything else: the real result is unknown
+            rec.update(transport_error=f"{type(e).__name__}: {e}", transport_kind="other")
+        rec["elapsed_ms"] = round((time.monotonic() - t0) * 1000, 1)
+        with self.lock:
+            self.stats["sent"] += 1
+            self.stats.setdefault("single_attempt", 0)
+            self.stats["single_attempt"] += 1
+        self.recent.append({k: rec[k] for k in ("event_id", "event_type", "target", "http_status", "transport_error", "elapsed_ms", "attempt_at")})
+        log.info(json.dumps({k: rec[k] for k in ("event_id", "event_type", "http_status", "transport_kind", "elapsed_ms")}, ensure_ascii=False))
+        return rec
 
     def status(self) -> dict:
         with self.lock:

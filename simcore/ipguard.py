@@ -3,7 +3,9 @@
 Two independent allow-lists, both evaluated on the *socket* peer address (proxy headers are never
 trusted, so X-Forwarded-For cannot be used to spoof an allowed address):
 
-* SIM_ADMIN_ALLOW_CIDRS  — applies to every /_sim/* path except the public exemptions below.
+* SIM_ADMIN_ALLOW_CIDRS  — applies to every /_sim/* and /_ctl* path except the public exemptions
+                           below (/_ctl* is the manual single-round control module, which is an
+                           administrative surface outside every customer contract).
                            Default: loopback + RFC1918 (host, docker networks, LAN). Empty => deny all.
 * SIM_CLIENT_ALLOW_CIDRS — applies to the contract paths (everything else). Default: empty => open,
                            because the customer contracts are plain HTTP/MQTT and tester addresses are
@@ -25,6 +27,8 @@ log = logging.getLogger("sim.ipguard")
 
 DEFAULT_ADMIN_CIDRS = "127.0.0.0/8,::1/128,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
 PUBLIC_PREFIXES = ("/_sim/health", "/_sim/cv/evidence/")
+ADMIN_PREFIXES = ("/_sim/", "/_ctl/")
+ADMIN_EXACT = ("/_sim", "/_ctl")
 
 
 def parse_cidrs(value: str | None) -> list:
@@ -53,7 +57,7 @@ def decide(path: str, client_ip: str | None, admin_nets: list, client_nets: list
     """Return None when allowed, otherwise a short reason string."""
     if path.startswith(PUBLIC_PREFIXES):
         return None
-    if path.startswith("/_sim/"):
+    if path.startswith(ADMIN_PREFIXES) or path in ADMIN_EXACT:
         return None if ip_allowed(client_ip, admin_nets) else "admin endpoint not allowed from this address"
     if not client_nets:  # open by default for contract paths
         return None
