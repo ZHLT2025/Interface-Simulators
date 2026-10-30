@@ -5,6 +5,9 @@ platform receiver. This simulator therefore has two parts:
 
   1. Producer (the simulated 中南大学机器视觉系统): /_sim/cv/emit, /_sim/cv/emit-raw, /_sim/cv/scenario/*
      build contract-conformant events (events.py) and push them (pusher.py) to CV_TARGET_URL.
+  3. Manual single-round control (IS-06/07/08, V1.1 设计 03): /_ctl/* + a minimal page. It owns the
+     global run lock, which the producer entries below also take, so there can only ever be one
+     sending task in this process (whichever door was used).
   2. Verification sink (验证用接收端, NOT the platform): POST /api/v1/cv-events implements the
      receiver side of the contract (Basic Auth, 200/401/422 semantics, event_id idempotency) so the
      producer can be verified end-to-end without the platform, and so phase-3 payloads can be checked.
@@ -26,6 +29,9 @@ from fastapi.responses import JSONResponse, Response
 from simcore.app_factory import SimContext
 from simcore.auth import check_basic
 from simcore.config import env, env_bool, env_float, env_int
+from simcore.control import ControlModule, RunLock, build_control_router
+from simcore.control.config import config_from_env
+from simcore.control.runlock import RunLockBusy
 from simcore.snowflake import Snowflake
 from simcore.timeutil import parse_iso_utc_ms
 
@@ -73,6 +79,27 @@ pusher = Pusher(
     accept_legacy_ok=env_bool("CV_ACCEPT_LEGACY_STATUS_OK", False),  # 24.5-2 旧备注 {"status":"ok"} 待确认
 )
 snow = Snowflake(env_int("CV_SNOWFLAKE_WORKER_ID", 7))
+
+# ----------------------------------------------------------------------- IS-08 global run lock
+# One lock for every sending entry point of this process: the manual single-round controller, the
+# native scenario runner and the single-shot emit endpoints. Busy => 409 + audit, never a queue.
+CONTROL_CFG = config_from_env(state_dir=S.state_dir / "control", cv_target_url=TARGET_URL)
+run_lock = RunLock(CONTROL_CFG.state_dir / "run.lock")
+
+
+def _claim_run_lock(holder: str):
+    try:
+        return run_lock.acquire(holder)
+    except RunLockBusy as e:
+        control.audit.write(event="run_lock_conflict", holder_requested=holder, current_holder=e.holder)
+        raise HTTPException(
+            status_code=409,
+            detail={
+                "code": "E_RUN_LOCK_BUSY",
+                "message": "已有活动发送任务占用全局运行锁；先停止当前任务（/_ctl 或 /_sim/cv/scenario/stop）",
+                "holder": e.holder,
+            },
+        )
 
 # sink configuration (验证用接收端)
 SINK_USER = env("CV_SINK_BASIC_USER")
@@ -173,8 +200,12 @@ def cv_emit(request: Request, spec: dict):
     """Build one contract-conformant event from a short spec and send it. Returns event + delivery record."""
     _admin_guard(request)
     _check_target(spec.get("target_url"))
-    ev = make_event(spec)
-    result = pusher.send(ev, spec.get("target_url"), _auth_override(spec))
+    token = _claim_run_lock("cv_emit")
+    try:
+        ev = make_event(spec)
+        result = pusher.send(ev, spec.get("target_url"), _auth_override(spec))
+    finally:
+        run_lock.release(token)
     return {"event": ev, "delivery": result}
 
 
@@ -186,7 +217,12 @@ def cv_emit_raw(request: Request, body: dict):
     if not isinstance(payload, dict):
         raise HTTPException(status_code=400, detail="payload (object) required")
     _check_target(body.get("target_url"))
-    return {"delivery": pusher.send(payload, body.get("target_url"), _auth_override(body)), "validation": validate_event(payload)}
+    token = _claim_run_lock("cv_emit_raw")
+    try:
+        delivery = pusher.send(payload, body.get("target_url"), _auth_override(body))
+    finally:
+        run_lock.release(token)
+    return {"delivery": delivery, "validation": validate_event(payload)}
 
 
 @app.post("/_sim/cv/build")
@@ -208,6 +244,7 @@ def cv_evidence(event_id: str):
 class Scenario(threading.Thread):
     def __init__(self):
         super().__init__(daemon=True, name="cv-scenario")
+        self.lock_token = None  # IS-08: the global run lock, held for the whole run
         self.stop_event = threading.Event()
         self.steps: list[dict] = []
         self.loop = False
@@ -239,6 +276,9 @@ class Scenario(threading.Thread):
                 self.pos += 1
         finally:
             self.running = False
+            if self.lock_token is not None:
+                run_lock.release(self.lock_token)
+                self.lock_token = None
 
     def status(self):
         return {"name": self.name, "running": self.running, "steps": len(self.steps), "position": self.pos, "loop": self.loop, "results": self.results[-20:]}
@@ -268,11 +308,18 @@ def scenario_run(request: Request, body: dict | None = None):
     with scenario_lock:
         if scenario.running or scenario.is_alive():
             raise HTTPException(status_code=409, detail="scenario already running; stop it first")
+        token = _claim_run_lock(f"native_scenario:{name}")
         new = Scenario()
         new.steps, new.loop, new.name = steps, bool(body.get("loop", False)), name
+        new.lock_token = token
         new.running = True  # claimed before the thread starts (closes the check-then-start window)
         scenario = new
-        new.start()
+        try:
+            new.start()
+        except BaseException:
+            new.lock_token = None
+            run_lock.release(token)
+            raise
     return {"started": True, "name": name, "steps": len(steps)}
 
 
@@ -363,10 +410,41 @@ def index():
         "role": "producer of IF-CV-001 events (机器视觉系统模拟) + verification sink",
         "producer_target": TARGET_URL,
         "producer_admin": "/_sim/cv/emit, /_sim/cv/emit-raw, /_sim/cv/build, /_sim/cv/scenario/{run,stop,status}, /_sim/cv/status",
+        "manual_single_round_control": "GET /_ctl/ (页面), /_ctl/status, POST /_ctl/{select_mode,init_start,pause,resume,stop,confirm_stop_point,clear_unknown}/{request,confirm,cancel}",
         "verification_sink": "POST /api/v1/cv-events (HTTP Basic) — 验证用接收端，非平台正式接收服务",
         "event_types": list(EVENT_TYPES),
         "admin": "/_sim/health, /_sim/status, /_sim/requests, /_sim/reload, /_sim/dataset",
     }
 
 
-ctx.mount_admin(extra_status=lambda: {"pusher": pusher.status(), "scenario": scenario.status(), "sink_events": len(sink_events)})
+# ======================================================================= manual single-round control
+control = ControlModule(
+    cfg=CONTROL_CFG,
+    run_lock=run_lock,
+    dataset_name=lambda: ctx.dsm.name,
+    dataset=lambda: ctx.ds,
+    build_event=make_event,
+    send_once=lambda event, target: pusher.send_once(event, target),
+    tls_verify=env_bool("CV_TLS_VERIFY", True),
+)
+app.include_router(build_control_router(control, _admin_guard))
+
+
+@app.on_event("shutdown")
+def _control_shutdown():
+    control.shutdown()
+
+
+ctx.mount_admin(
+    extra_status=lambda: {
+        "pusher": pusher.status(),
+        "scenario": scenario.status(),
+        "sink_events": len(sink_events),
+        "run_lock": {"locked": run_lock.locked(), "holder": run_lock.holder()},
+        "control": {
+            "selected_mode": control.mode,
+            "state": control.store().get()["state"],
+            "run_id": control.store().get().get("run_id"),
+        },
+    }
+)
